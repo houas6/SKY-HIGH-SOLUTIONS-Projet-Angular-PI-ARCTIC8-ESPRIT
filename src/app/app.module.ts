@@ -7,10 +7,17 @@ import { DynamicComponent } from './FrontOffice/dynamic/dynamic.component';
 import { HeaderComponent } from './FrontOffice/header/header.component';
 import { FooterComponent } from './FrontOffice/footer/footer.component';
 import { AllTemplateFrontComponent } from './FrontOffice/all-template-front/all-template-front.component';
-import { AllTemplateBackComponent } from './BackOffice/all-template-back/all-template-back.component';
-import { ContentComponent } from './BackOffice/content/content.component';
+
+
 import { HttpClientModule } from '@angular/common/http';
 import { SessionComponent } from './FrontOffice/session/session.component';
+import { ReactiveFormsModule } from '@angular/forms';
+import { AllTemplateBackComponent } from './BackOffice/all-template-back/all-template-back.component';
+import { SidebarComponent } from './BackOffice/sidebar/sidebar.component';
+import { NavbarComponent } from './BackOffice/navbar/navbar.component';
+import { SessionbackComponent } from './BackOffice/sessionback/sessionback.component';
+
+
 @NgModule({
 
 
@@ -21,12 +28,12 @@ import { SessionComponent } from './FrontOffice/session/session.component';
     HeaderComponent,
     FooterComponent,
     AllTemplateFrontComponent,
-    ContentComponent,
-    SessionComponent
 
-
-
-
+    SessionComponent,
+      AllTemplateBackComponent,
+      SidebarComponent,
+      NavbarComponent,
+      SessionbackComponent,
 
 
 
@@ -37,9 +44,13 @@ import { SessionComponent } from './FrontOffice/session/session.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    ReactiveFormsModule,
+
   ],
   providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+
+ }

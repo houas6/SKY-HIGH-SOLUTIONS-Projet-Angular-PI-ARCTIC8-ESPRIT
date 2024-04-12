@@ -8,7 +8,7 @@ describe('AllTemplateBackComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [AllTemplateBackComponent]
+      declarations: [AllTemplateBackComponent]
     })
     .compileComponents();
     

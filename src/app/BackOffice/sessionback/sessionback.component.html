@@ -1,0 +1,92 @@
+<style>/* Custom CSS for white placeholders */
+  .custom-bg ::placeholder {
+    color: white;
+  }
+  </style>
+<div class="container" style="margin: 0 auto;">
+  <div class="custom-bg rounded p-4" style="max-width: 600px;">
+    <div class="d-flex align-items-left justify-content-between mb-4">
+      <h6 class="mb-0">Add Session</h6>
+    </div>
+    <div class="table-responsive">
+      <form [formGroup]="sessionForm" (ngSubmit)=" editSession ? upSession() : addSession() " class="custom-bg text-white p-4 rounded">
+
+
+        <div class="mb-3">
+          <label for="Date_debut" class="form-label text-danger">Start Date:</label>
+          <input id="Date_debut" type="date" formControlName="Date_debut" class="form-control bg-light text-dark" placeholder="Start Date">
+        </div>
+
+        <div class="mb-3">
+          <label for="duree" class="form-label text-danger">Duration:</label>
+          <input id="duree" type="number" formControlName="duree" class="form-control bg-light text-dark" placeholder="Duration">
+        </div>
+
+        <div class="mb-3">
+          <label for="nbr_personne" class="form-label text-danger">Number of People:</label>
+          <input id="nbr_personne" type="number" formControlName="nbr_personne" class="form-control bg-light text-dark" placeholder="Number of People">
+        </div>
+
+        <div class="mb-3">
+          <label for="topic" class="form-label text-danger">Topic:</label>
+          <input id="topic" type="text" formControlName="topic" class="form-control bg-light text-dark" placeholder="Topic">
+        </div>
+
+        <div class="mb-3">
+          <label for="modalite" class="form-label text-danger">Mode:</label>
+          <select id="modalite" formControlName="modalite" class="form-select bg-light text-dark">
+            <option *ngFor="let modalite of modalites" [value]="modalite" class="bg-light text-dark">{{modalite}}</option>
+          </select>
+        </div>
+
+        <div formGroupName="instructor">
+          <div class="mb-3">
+            <label for="idUser" class="form-label text-danger">Instructor ID:</label>
+            <input id="idUser" type="number" formControlName="idUser" class="form-control bg-light text-dark" placeholder="Instructor ID">
+          </div>
+
+          <div class="mb-3">
+            <label for="nom" class="form-label text-danger">Instructor Name:</label>
+            <input id="nom" type="text" formControlName="nom" class="form-control bg-light text-dark" placeholder="Instructor Name">
+          </div>
+
+
+        </div>
+
+        <button type="submit" class="btn btn-danger">Submit</button>
+      </form>
+    </div>
+  </div>
+</div>
+ <!-- Table of sessions -->
+ <table class="table table-striped mt-4">
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Start Date</th>
+      <th>Duration</th>
+      <th>Number of People</th>
+      <th>Topic</th>
+      <th>Mode</th>
+      <th>Instructor ID</th>
+      <th>Instructor Name</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let session of sessions">
+      <td>{{ session.idSession }}</td>
+      <td>{{ session.Date_debut }}</td>
+      <td>{{ session.duree }}</td>
+      <td>{{ session.nbr_personne }}</td>
+      <td>{{ session.topic }}</td>
+      <td>{{ session.modalite }}</td>
+      <td>{{ session.instructor.idUser }}</td>
+      <td>{{ session.instructor.nom }}</td>
+      <td>
+        <!-- Edit button -->
+        <button (click)="editSessions(session)" class="btn btn-primary">Edit</button>
+        <button (click)="deleteSession(session.idSession)" class="btn btn-primary">Delete</button>
+    </tr>
+  </tbody>
+</table>

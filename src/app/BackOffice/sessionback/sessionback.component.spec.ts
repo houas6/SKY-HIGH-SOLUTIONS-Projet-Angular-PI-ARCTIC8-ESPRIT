@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ContentComponent } from './content.component';
+import { SessionbackComponent } from './sessionback.component';
 
-describe('ContentComponent', () => {
-  let component: ContentComponent;
-  let fixture: ComponentFixture<ContentComponent>;
+describe('SessionbackComponent', () => {
+  let component: SessionbackComponent;
+  let fixture: ComponentFixture<SessionbackComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ContentComponent]
+      declarations: [SessionbackComponent]
     })
     .compileComponents();
     
-    fixture = TestBed.createComponent(ContentComponent);
+    fixture = TestBed.createComponent(SessionbackComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

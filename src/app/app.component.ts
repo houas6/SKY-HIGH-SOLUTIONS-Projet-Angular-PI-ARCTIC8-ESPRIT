@@ -10,7 +10,7 @@ import { Session } from './FrontOffice/Session';
 export class AppComponent {
   title = 'testAng';
   sessions: Session[] = [];
-  constructor(protected sessionService: SessionService){}
+  constructor(private sessionService: SessionService){}
   ngOnInit(): void {
     this.loadSessions();
   }

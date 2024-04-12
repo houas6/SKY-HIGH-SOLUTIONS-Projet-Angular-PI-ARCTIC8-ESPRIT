@@ -1,26 +1,27 @@
-<div *ngIf="sessions && sessions.length > 0; else noData">
-  <table>
-    <thead>
-      <tr>
-        <th>Date_debut</th>
-        <th>duree</th>
-        <th>nbr_personne</th>
-        <th>topic</th>
-        <th>modalite</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr *ngFor="let session of sessions">
-        <td>{{session.Date_debut}}</td>
-        <td>{{session.duree}}</td>
-        <td>{{session.nbr_personne}}</td>
-        <td>{{session.topic}}</td>
-        <td>{{session.modalite}}</td>
-      </tr>
-    </tbody>
-  </table>
+<style>.course-item-container:hover {
+  background-color: red;
+}
+</style>
+
+<div class="row course-items-area">
+  <!-- session -->
+  <div *ngFor="let session of sessions" class="mix col-lg-4 col-md-4 col-sm-6 {{session.topic}}">
+    <div class="course-item">
+      <div class="course-thumb set-bg" style="background-color: rgb(221, 240, 247);">
+        <div class="date"style="font-size: 20px; border: 2px dashed lightblue; text-align: center;">Date: {{session.Date_debut}}</div>
+        <div class="date"style="font-size: 23px; border: 2px dashed lightblue; text-align: center;">Topic: {{session.topic}}</div>
+      </div>
+      <div class="course-info">
+        <div class="course-text">
+          <h5>{{session.modalite}} Modalite</h5>
+          <p>Join us !</p>
+          <div class="students">{{session.nbr_personne}} Students Attending </div>
+        </div>
+        <div class="course-author">
+          <p>{{session.instructor.nom}} Instructor</p>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
-<ng-template #noData>
-  <p>No sessions found.</p>
-</ng-template>
-<router-outlet></router-outlet>
+
