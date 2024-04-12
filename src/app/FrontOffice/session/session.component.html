@@ -1,0 +1,26 @@
+<div *ngIf="sessions && sessions.length > 0; else noData">
+  <table>
+    <thead>
+      <tr>
+        <th>Date_debut</th>
+        <th>duree</th>
+        <th>nbr_personne</th>
+        <th>topic</th>
+        <th>modalite</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let session of sessions">
+        <td>{{session.Date_debut}}</td>
+        <td>{{session.duree}}</td>
+        <td>{{session.nbr_personne}}</td>
+        <td>{{session.topic}}</td>
+        <td>{{session.modalite}}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+<ng-template #noData>
+  <p>No sessions found.</p>
+</ng-template>
+<router-outlet></router-outlet>

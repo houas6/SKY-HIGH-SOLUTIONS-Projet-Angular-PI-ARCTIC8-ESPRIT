@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { SessionService } from './Services/session.service';
+import { Session } from './FrontOffice/Session';
 
 @Component({
   selector: 'app-root',
@@ -7,4 +9,14 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'testAng';
+  sessions: Session[] = [];
+  constructor(protected sessionService: SessionService){}
+  ngOnInit(): void {
+    this.loadSessions();
+  }
+  loadSessions():void  {
+    this.sessionService.getSession().subscribe((sessions: Session[]) => {
+      this.sessions = sessions;
+    });
+  }
 }

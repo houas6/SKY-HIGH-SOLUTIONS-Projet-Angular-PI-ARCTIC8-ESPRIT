@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { DynamicbackComponent } from './dynamicback.component';
+import { SessionComponent } from './session.component';
 
-describe('DynamicbackComponent', () => {
-  let component: DynamicbackComponent;
-  let fixture: ComponentFixture<DynamicbackComponent>;
+describe('SessionComponent', () => {
+  let component: SessionComponent;
+  let fixture: ComponentFixture<SessionComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [DynamicbackComponent]
+      declarations: [SessionComponent]
     })
     .compileComponents();
     
-    fixture = TestBed.createComponent(DynamicbackComponent);
+    fixture = TestBed.createComponent(SessionComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
