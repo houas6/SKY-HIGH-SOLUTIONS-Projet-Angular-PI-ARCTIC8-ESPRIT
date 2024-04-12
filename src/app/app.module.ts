@@ -11,6 +11,8 @@ import { AllTemplateBackComponent } from './BackOffice/all-template-back/all-tem
 import { ContentComponent } from './BackOffice/content/content.component';
 import { HttpClientModule } from '@angular/common/http';
 import { SessionComponent } from './FrontOffice/session/session.component';
+import { RessourcesComponent } from './FrontOffice/ressources/ressources.component';
+import { RessourceComponent } from './FrontOffice/ressource/ressource.component';
 @NgModule({
 
 
@@ -22,7 +24,9 @@ import { SessionComponent } from './FrontOffice/session/session.component';
     FooterComponent,
     AllTemplateFrontComponent,
     ContentComponent,
-    SessionComponent
+    SessionComponent,
+    RessourcesComponent,
+    RessourceComponent
 
 
 
