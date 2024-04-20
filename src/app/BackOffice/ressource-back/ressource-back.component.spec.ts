@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ContentComponent } from './content.component';
+import { RessourceBackComponent } from './ressource-back.component';
 
-describe('ContentComponent', () => {
-  let component: ContentComponent;
-  let fixture: ComponentFixture<ContentComponent>;
+describe('RessourceBackComponent', () => {
+  let component: RessourceBackComponent;
+  let fixture: ComponentFixture<RessourceBackComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ContentComponent]
+      declarations: [RessourceBackComponent]
     })
     .compileComponents();
     
-    fixture = TestBed.createComponent(ContentComponent);
+    fixture = TestBed.createComponent(RessourceBackComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

@@ -15,19 +15,20 @@ export class AppComponent {
   Ressources: Ressource[]= [];
   constructor(protected sessionService: SessionService,private ressourceService: RessourceService){}
   ngOnInit(): void {
-    this.loadSessions();
+  //  this.loadSessions();
     this.loadRessources();
   }
-  loadSessions():void  {
+ /* loadSessions():void  {
     this.sessionService.getSession().subscribe((sessions: Session[]) => {
       this.sessions = sessions;
     });
- }
+ }*/
  loadRessources():void  {
   this.ressourceService.getRessource().subscribe((ressources: Ressource[]) => {
     this.Ressources = ressources;
   });
 }
+
 }
 
 
