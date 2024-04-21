@@ -9,7 +9,8 @@ import { Ressource } from '../FrontOffice/Ressource';
 export class RessourceService {
   private baseUrl :string = 'http://localhost:8089/Gestion-ressources/Ressource/'
 
-  constructor(private http:HttpClient) { }
+  constructor(public http:HttpClient) { }
+  
   getRessource(): Observable<Ressource[]>{
     return this.http.get<Ressource[]>(  this.baseUrl + 'retrieve-all-Ressources');
   }
@@ -22,8 +23,10 @@ export class RessourceService {
   updateRessource(ressource: Ressource): Observable<Ressource> {
     return this.http.put<Ressource>(this.baseUrl + 'modify-Ressource',ressource);
   }
-  deleteRessource(id:number): Observable<void> {
-    return this.http.delete<void>('http://localhost:8089/Gestion-ressources/Ressource/remove-Ressource/', { params: { 'idRessource': id.toString() } });
+  deleteRessource(id: number): Observable<void> {
+    const url = `http://localhost:8089/Gestion-ressources/Ressource/remove-Ressource/${id}`;
+    return this.http.delete<void>(url);
   }
+  
 
 }

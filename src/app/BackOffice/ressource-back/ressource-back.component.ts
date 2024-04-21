@@ -10,17 +10,16 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 export class RessourceBackComponent  implements OnInit{
 
   ressourceForm: FormGroup;
-  Types:string[]= ['cours','résumé','examens','tps'];
+  types:string[]= ['cours','résumé','examens','tps'];
   ressources: Ressource[] = [];
   editressource: Ressource | null = null;
 
   constructor( private formBuilder: FormBuilder,private RessourceService: RessourceService){
 
     this.ressourceForm = this.formBuilder.group({
-      idRessources: ['', [Validators.required, Validators.pattern('^[0-9]+$')]],
-      Date_ajout: ['', [Validators.required, Validators.pattern('^(?:19|20)[0-9]{2}-(?:(?:0[1-9]|1[0-2])-(?:0[1-9]|1[0-9]|2[0-9])|(?:0[13-9]|1[0-2])-(?:30)|(?:0[13578]|1[02])-31)$')]],
-      Description: ['', [Validators.required]],
-      Type: ['', Validators.required],
+      date_ajout: ['', [Validators.required]],
+      description: ['', [Validators.required]],
+      type: ['', Validators.required],
       content: ['', [Validators.required]],
       
       
@@ -38,14 +37,37 @@ export class RessourceBackComponent  implements OnInit{
         console.error('Error fetching ressources', error);
       }
     );
+    this.decodeBase64Content();
   }
-  addressource() {
+  
+  private decodeBase64Content(): void {
+    this.ressources.forEach(ressource => {
+      this.decodeBase64(ressource.content).then(decodedContent => {
+        // Update the resource content with the decoded Blob
+        ressource.content = decodedContent;
+      }).catch(error => {
+        console.error('Error decoding Base64 content:', error);
+      });
+    });
+  }
+
+  private decodeBase64(encodedContent: Blob): Promise<Blob> {
+    return new Promise<Blob>((resolve, reject) => {
+      const reader = new FileReader();
+      reader.onload = () => {
+        resolve(new Blob([reader.result as ArrayBuffer]));
+      };
+      reader.onerror = error => reject(error);
+      reader.readAsArrayBuffer(encodedContent);
+    });
+  }
+
+  /*addressource() {
     const newRessource: Ressource = {
       Date_ajout: this.ressourceForm.value.Date_ajout,
       Description: this.ressourceForm.value.Description,
       Type: this.ressourceForm.value.Type,
       content: this.ressourceForm.value.content
-      // Don't include idRessources here
     };
   
     console.log("New Resource:", newRessource); // Log newRessource to check its values
@@ -60,9 +82,27 @@ export class RessourceBackComponent  implements OnInit{
         console.error('Error adding ressource', error);
       }
     );
+  }*/
+  
+  addressource() {
+    const newRessource: Ressource = this.ressourceForm.value;
+
+    // Add the new Ressource to the Ressources array
+    this.RessourceService.addRessource(newRessource).subscribe(
+      (data) => {
+        // If successful, add the new Ressource to the Ressources array
+        this.ressources.push(data);
+
+        // Reset the form
+        this.ressourceForm.reset();
+      },
+      (error) => {
+        console.error('Error adding Ressource', error);
+      }
+    );
+
+
   }
-  
-  
 
   upressource(): void {
     if (this.editressource && this.ressourceForm.valid) {
@@ -77,15 +117,17 @@ export class RessourceBackComponent  implements OnInit{
 
 
   editressources(ressource:Ressource):void{
- this.editressource =ressource;
- this.ressourceForm.patchValue({
-  Date_ajout: ressource.Date_ajout,
-  Description: ressource.Description,
-  Type: ressource.Type,
-  content: ressource.content
+      this.editressource =ressource;
+      this.ressourceForm.patchValue({
+      date_ajout: ressource.date_ajout,
+      description: ressource.description,
+      type: ressource.type,
+      content: ressource.content
   
 });
   }
+
+
   deleteressource(id: number) {
     this.RessourceService.deleteRessource(id).subscribe(
       response => {
@@ -113,6 +155,7 @@ export class RessourceBackComponent  implements OnInit{
         reader.readAsDataURL(file);
     }
 }
+
 
 
 extractFileName(content: Blob): Promise<string> {

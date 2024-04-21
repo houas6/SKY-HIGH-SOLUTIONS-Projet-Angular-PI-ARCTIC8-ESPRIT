@@ -3,9 +3,9 @@ import { Type } from "./Type";
 
 export class Ressource {
     idRessources?: number;
-    Date_ajout!: Date;
-    Description!: string;
-    Type!: Type;
+    date_ajout!: Date;
+    description!: string;
+    type!: Type;
     content!: Blob;
   
    

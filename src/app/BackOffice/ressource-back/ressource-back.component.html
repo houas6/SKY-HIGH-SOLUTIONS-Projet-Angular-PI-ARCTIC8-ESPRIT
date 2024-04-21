@@ -10,20 +10,21 @@
       </div>
       <div class="table-responsive">
         <form [formGroup]="ressourceForm" (ngSubmit)="editressource ? upressource() : addressource()" class="custom-bg text-white p-4 rounded">
+
           <div class="mb-3">
-            <label for="Date_ajout" class="form-label text-danger">Date d'ajout:</label>
-            <input id="Date_ajout" type="date" formControlName="Date_ajout" class="form-control bg-light text-dark" placeholder="Date d'ajout">
+            <label for="date_ajout" class="form-label text-danger">Date d'ajout:</label>
+            <input id="date_ajout" type="date" formControlName="date_ajout" class="form-control bg-light text-dark" placeholder="Date d'ajout">
           </div>
       
           <div class="mb-3">
-            <label for="Description" class="form-label text-danger">Description:</label>
-            <input id="Description" type="text" formControlName="Description" class="form-control bg-light text-dark" placeholder="Description">
+            <label for="description" class="form-label text-danger">Description:</label>
+            <input id="description" type="text" formControlName="description" class="form-control bg-light text-dark" placeholder="Description">
           </div>
       
           <div class="mb-3">
-            <label for="Type" class="form-label text-danger">Type:</label>
-            <select id="Type" formControlName="Type" class="form-select bg-light text-dark">
-              <option *ngFor="let Type of Types" [value]="Type" class="bg-light text-dark">{{Type}}</option>
+            <label for="type" class="form-label text-danger">Type:</label>
+            <select id="type" formControlName="type" class="form-select bg-light text-dark">
+              <option *ngFor="let type of types" [value]="type" class="bg-light text-dark">{{type}}</option>
             </select>
           </div>
       
@@ -57,10 +58,10 @@
         <tbody>
           <tr *ngFor="let ressource of ressources">
             <td>{{ ressource.idRessources }}</td>
-            <td>{{ ressource.Date_ajout }}</td>
-            <td>{{ ressource.Description }}</td>
-            <td>{{ ressource.Type }}</td>
-            <td>{{ ressource.content }}</td>
+            <td>{{ ressource.date_ajout }}</td>
+            <td>{{ ressource.description }}</td>
+            <td>{{ ressource.type }}</td>
+            <td>{{ ressource.content  }}</td>
             <td>
               <!-- Edit button -->
               <button (click)="editressources(ressource)" class="btn btn-primary">Edit</button>
