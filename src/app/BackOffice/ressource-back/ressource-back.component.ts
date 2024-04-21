@@ -37,31 +37,9 @@ export class RessourceBackComponent  implements OnInit{
         console.error('Error fetching ressources', error);
       }
     );
-    this.decodeBase64Content();
+  
   }
   
-  private decodeBase64Content(): void {
-    this.ressources.forEach(ressource => {
-      this.decodeBase64(ressource.content).then(decodedContent => {
-        // Update the resource content with the decoded Blob
-        ressource.content = decodedContent;
-      }).catch(error => {
-        console.error('Error decoding Base64 content:', error);
-      });
-    });
-  }
-
-  private decodeBase64(encodedContent: Blob): Promise<Blob> {
-    return new Promise<Blob>((resolve, reject) => {
-      const reader = new FileReader();
-      reader.onload = () => {
-        resolve(new Blob([reader.result as ArrayBuffer]));
-      };
-      reader.onerror = error => reject(error);
-      reader.readAsArrayBuffer(encodedContent);
-    });
-  }
-
   /*addressource() {
     const newRessource: Ressource = {
       Date_ajout: this.ressourceForm.value.Date_ajout,

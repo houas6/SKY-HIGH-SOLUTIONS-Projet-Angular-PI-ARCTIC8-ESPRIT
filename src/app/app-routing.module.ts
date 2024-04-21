@@ -12,6 +12,10 @@ const routes: Routes = [
   component:AllTemplateBackComponent
   },
   {
+    path:"front",
+    component:AllTemplateFrontComponent
+    },
+  {
     path:"test",
     component:AllTemplateFrontComponent
   },

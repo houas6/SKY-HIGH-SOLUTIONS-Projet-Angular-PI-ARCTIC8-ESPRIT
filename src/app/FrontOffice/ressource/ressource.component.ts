@@ -17,15 +17,17 @@ export class RessourceComponent implements OnInit{
   constructor(private ressourceService: RessourceService) { }
 
   ngOnInit(): void {
-    this.getRessources();
+    this.fetchRessources();
   }
 
-  getRessources(): void {
-    this.ressourceService.getRessource()
-      .subscribe(Ressources => this.Ressources = Ressources);
+  fetchRessources(): void {
+    this.ressourceService.getRessource().subscribe(
+      (data) => {
+        this.Ressources = data;
+      },
+      (error) => {
+        console.error('Error fetching resources', error);
+      }
+    );
   }
-
-  
-  RessourceForm: FormGroup | undefined;
-  
 }
