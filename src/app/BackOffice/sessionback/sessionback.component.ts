@@ -62,22 +62,32 @@ export class SessionbackComponent implements OnInit{
     );
   }
   upSession(): void {
+    console.log('before up');
+
     if (this.editSession && this.sessionForm.valid) {
+      console.log('after condition');
+
       const upSession: Session = {...this.editSession, ...this.sessionForm.value} as Session;
       this.sessionService.updateSession(upSession).subscribe(() => {
         this.sessionForm.reset();
         this.editSession = null;
-      });
+      }, error => {
+        console.error('Error updating session:', error);});
     }
 
   }
 
 
   editSessions(session:Session):void{
+    console.log("test edit");
+
  this.editSession =session;
+ let date = new Date(session.Date_debut);
+  let formattedDate = date.toISOString().split('T')[0];
+
  this.sessionForm.patchValue({
-  idSession: session.idSession,
-  Date_debut: session.Date_debut,
+
+  Date_debut: formattedDate,
   duree: session.duree,
   nbr_personne: session.nbr_personne,
   topic: session.topic,
@@ -89,6 +99,7 @@ export class SessionbackComponent implements OnInit{
 });
   }
   deleteSession(id: number) {
+
     this.sessionService.deleteSession(id).subscribe(
       response => {
         console.log(response);

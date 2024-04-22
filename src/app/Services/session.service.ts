@@ -19,10 +19,12 @@ export class SessionService {
     return this.http.post<Session>(this.baseUrl +'add-session',session);
   }
   updateSession(session: Session): Observable<Session> {
-    return this.http.put<Session>(this.baseUrl + 'update-session',session);
+    return this.http.patch<Session>(this.baseUrl + 'update-session',session);
   }
   deleteSession(id:number): Observable<void> {
-    return this.http.delete<void>('http://localhost:8082/revisionsbd/session/remove-session', { params: { 'session-id': id.toString() } });
+    console.log("test delete");
+
+    return this.http.delete<void>('http://localhost:8082/revisionsbd/session/remove-session/'+id);
   }
 
 }

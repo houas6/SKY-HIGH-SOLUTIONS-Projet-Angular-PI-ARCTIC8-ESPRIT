@@ -4,6 +4,7 @@ import { AllTemplateFrontComponent } from './FrontOffice/all-template-front/all-
 import { SessionComponent } from './FrontOffice/session/session.component';
 import { AllTemplateBackComponent } from './BackOffice/all-template-back/all-template-back.component';
 import { SessionbackComponent } from './BackOffice/sessionback/sessionback.component';
+import { CommentComponent } from './FrontOffice/comment/comment.component';
 
 const routes: Routes = [
    {
@@ -21,6 +22,10 @@ const routes: Routes = [
   {
     path:"form",
     component:SessionbackComponent
+  },
+  {
+    path:"comment",
+    component:CommentComponent
   }
 
 ];

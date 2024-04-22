@@ -9,8 +9,8 @@
       <h6 class="mb-0">Add Session</h6>
     </div>
     <div class="table-responsive">
-      <form [formGroup]="sessionForm" (ngSubmit)=" editSession ? upSession() : addSession() " class="custom-bg text-white p-4 rounded">
-
+      <form [formGroup]="sessionForm" (ngSubmit)="addSession() " class="custom-bg text-white p-4 rounded">
+        <button type="button" ((click))="upSession()" class="btn btn-primary">Update</button>
 
         <div class="mb-3">
           <label for="Date_debut" class="form-label text-danger">Start Date:</label>

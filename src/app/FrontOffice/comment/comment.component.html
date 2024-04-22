@@ -1,0 +1,119 @@
+<!-- comment.component.html -->
+
+<div class="comment-container">
+  <h4 style="color: rgb(185, 45, 45);">Give us your opinion !</h4>
+  <form [formGroup]="commentForm" (ngSubmit)="createComment()">
+    <div class="form-group">
+      <label style="color: rgb(49, 30, 30);" for="content">Content:</label>
+      <textarea formControlName="content" id="content"></textarea>
+    </div>
+    <div class="form-group">
+      <label for="idSession">Session Code:</label>
+      <input type="number" formControlName="idSession" id="idSession">
+    </div>
+    <button type="submit" [disabled]="commentForm.invalid">Submit</button>
+  </form>
+</div>
+
+
+<!-- Comments Section -->
+
+  <h5 style="color: rgb(185, 45, 45);">All Comments</h5>
+  <!-- Iterate through comments and display them -->
+  <div *ngFor="let comment of comments">
+    <div class="comment-box">
+
+      <p><strong>Created At:</strong> {{ comment.createdAt }}</p>
+      <p><strong>Session commented:</strong> {{ comment.sessionComment }}</p>
+      <p><strong>Content:</strong> {{ comment.content }}</p>
+      <p><strong>Posted By:</strong> {{ comment.postedBy }}</p>
+       <!-- Delete Comment Button -->
+    <button (click)="deleteComment( comment.idComment)">Delete Comment</button>
+    </div>
+</div>
+
+
+<!-- Add any additional styling as needed -->
+<style>
+  .course-item-container {
+    background-color: red; /* Hover background color */
+  }
+
+  .course-item-container:hover .course-thumb {
+    background-color: red; /* Hover background color */
+  }
+
+  .course-thumb {
+    background-color: rgb(221, 240, 247);
+    font-size: 20px;
+    border: 2px dashed lightblue;
+    text-align: center;
+  }
+
+  .form-group {
+    margin-bottom: 20px;
+  }
+
+  label {
+    font-size: 16px;
+    margin-bottom: 5px;
+    display: block;
+  }
+
+  textarea, input[type="number"] {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    font-size: 16px;
+  }
+
+  button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+  }
+
+  button:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+  }
+  .show-comments-btn {
+    background-color: darkred;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+    margin-top: 20px;
+  }
+
+  .comments-section {
+  margin-top: 20px;
+}
+
+.comment {
+  margin-bottom: 20px;
+}
+
+.comment-box {
+  border: 1px solid #ccc;
+  padding: 10px;
+  border-radius: 5px;
+  background-color: #f9f9f9;
+}
+
+.comment-box p {
+  margin: 5px 0;
+}
+
+.comment-box strong {
+  color: black;
+}
+</style>

@@ -1,7 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { Session } from '../Session';
 import { SessionService } from '../../Services/session.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { CommentServiceService } from '../../Services/comment-service.service';
 
 @Component({
   selector: 'app-session',
@@ -12,8 +13,9 @@ export class SessionComponent implements OnInit {
 
   sessions: Session[] = [];
   sessionForm: FormGroup;
+comments: Comment[] = [];
 
-  constructor(private sessionService: SessionService, private formBuilder: FormBuilder) {
+  constructor(private sessionService: SessionService, private formBuilder: FormBuilder,private commentService:CommentServiceService) {
     this.sessionForm = this.formBuilder.group({
       idSession: ['', [Validators.required, Validators.pattern('^[0-9]+$')]],
       Date_debut: ['', [Validators.required, Validators.pattern('^(?:19|20)[0-9]{2}-(?:(?:0[1-9]|1[0-2])-(?:0[1-9]|1[0-9]|2[0-9])|(?:0[13-9]|1[0-2])-(?:30)|(?:0[13578]|1[02])-31)$')]],
@@ -40,4 +42,5 @@ export class SessionComponent implements OnInit {
       }
     );
   }
+
 }

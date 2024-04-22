@@ -7,15 +7,19 @@ import { DynamicComponent } from './FrontOffice/dynamic/dynamic.component';
 import { HeaderComponent } from './FrontOffice/header/header.component';
 import { FooterComponent } from './FrontOffice/footer/footer.component';
 import { AllTemplateFrontComponent } from './FrontOffice/all-template-front/all-template-front.component';
-
+import { GoogleMapsModule } from '@angular/google-maps';
 
 import { HttpClientModule } from '@angular/common/http';
 import { SessionComponent } from './FrontOffice/session/session.component';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AllTemplateBackComponent } from './BackOffice/all-template-back/all-template-back.component';
 import { SidebarComponent } from './BackOffice/sidebar/sidebar.component';
 import { NavbarComponent } from './BackOffice/navbar/navbar.component';
 import { SessionbackComponent } from './BackOffice/sessionback/sessionback.component';
+import { CommentComponent } from './FrontOffice/comment/comment.component';
+
+import { CommonModule } from '@angular/common';
+
 
 
 @NgModule({
@@ -34,6 +38,8 @@ import { SessionbackComponent } from './BackOffice/sessionback/sessionback.compo
       SidebarComponent,
       NavbarComponent,
       SessionbackComponent,
+      CommentComponent,
+
 
 
 
@@ -46,8 +52,13 @@ import { SessionbackComponent } from './BackOffice/sessionback/sessionback.compo
     AppRoutingModule,
     HttpClientModule,
     ReactiveFormsModule,
+    GoogleMapsModule,
+    FormsModule,
+
+
 
   ],
+
   providers: [],
   bootstrap: [AppComponent]
 })
