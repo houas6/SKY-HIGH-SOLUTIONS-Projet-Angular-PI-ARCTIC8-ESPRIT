@@ -2,6 +2,7 @@ import { Component, OnInit , Input} from '@angular/core';
 import { Comment } from '../Comment';
 import { CommentServiceService } from '../../Services/comment-service.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { ReplyServiceService } from '../../Services/reply-service.service';
 
 // List of prohibited words
 const badWords = ['fuck', 'shit','damn','eww','disgusting'];
@@ -27,7 +28,7 @@ export class CommentComponent implements OnInit {
   // will be set by user input
   commentForm!:FormGroup;
 
-  constructor(private commentService: CommentServiceService,private formBuilder:FormBuilder) {
+  constructor(private commentService: CommentServiceService,private formBuilder:FormBuilder,private replyService: ReplyServiceService) {
     this.commentForm = this.formBuilder.group({
       content: ['', Validators.required],
       idSession: ['', [Validators.required, Validators.pattern('^[0-9]+$')]] // Assuming you manually input session ID
@@ -78,6 +79,18 @@ export class CommentComponent implements OnInit {
     this.commentService.deleteComment( commentId).subscribe(
       () => {
         console.log('Comment deleted successfully');
+        // Refresh the comments
+        this. ngOnInit();
+      },
+      error => {
+        console.error('Error deleting comment: ' + error);
+      }
+    );
+  }
+  deleteReply(replyId: number) {
+    this.replyService.deleteReply( replyId).subscribe(
+      () => {
+        console.log('reply deleted successfully');
         // Refresh the comments
         this. ngOnInit();
       },

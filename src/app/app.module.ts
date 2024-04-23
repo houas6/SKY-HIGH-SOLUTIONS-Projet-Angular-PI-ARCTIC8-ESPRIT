@@ -19,6 +19,7 @@ import { SessionbackComponent } from './BackOffice/sessionback/sessionback.compo
 import { CommentComponent } from './FrontOffice/comment/comment.component';
 
 import { CommonModule } from '@angular/common';
+import { ReplyComponent } from './FrontOffice/reply/reply.component';
 
 
 
@@ -39,6 +40,7 @@ import { CommonModule } from '@angular/common';
       NavbarComponent,
       SessionbackComponent,
       CommentComponent,
+      ReplyComponent,
 
 
 

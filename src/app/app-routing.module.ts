@@ -5,6 +5,7 @@ import { SessionComponent } from './FrontOffice/session/session.component';
 import { AllTemplateBackComponent } from './BackOffice/all-template-back/all-template-back.component';
 import { SessionbackComponent } from './BackOffice/sessionback/sessionback.component';
 import { CommentComponent } from './FrontOffice/comment/comment.component';
+import { ReplyComponent } from './FrontOffice/reply/reply.component';
 
 const routes: Routes = [
    {
@@ -26,6 +27,10 @@ const routes: Routes = [
   {
     path:"comment",
     component:CommentComponent
+  },
+  {
+    path:"reply",
+    component:ReplyComponent
   }
 
 ];

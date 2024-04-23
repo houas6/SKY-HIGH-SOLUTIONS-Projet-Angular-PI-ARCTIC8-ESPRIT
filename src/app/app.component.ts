@@ -9,14 +9,14 @@ import { Session } from './FrontOffice/Session';
 })
 export class AppComponent {
   title = 'testAng';
-  sessions: Session[] = [];
-  constructor(private sessionService: SessionService){}
-  ngOnInit(): void {
-    this.loadSessions();
+ // sessions: Session[] = [];
+ // constructor(private sessionService: SessionService){}
+ // ngOnInit(): void {
+ //   this.loadSessions();
   }
-  loadSessions():void  {
-    this.sessionService.getSession().subscribe((sessions: Session[]) => {
-      this.sessions = sessions;
-    });
-  }
-}
+ // loadSessions():void  {
+   // this.sessionService.getSession().subscribe((sessions: Session[]) => {
+   //   this.sessions = sessions;
+   // });
+ // }
+

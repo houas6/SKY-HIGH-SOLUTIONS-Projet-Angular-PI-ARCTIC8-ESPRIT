@@ -22,13 +22,24 @@
   <!-- Iterate through comments and display them -->
   <div *ngFor="let comment of comments">
     <div class="comment-box">
-
-      <p><strong>Created At:</strong> {{ comment.createdAt }}</p>
-      <p><strong>Session commented:</strong> {{ comment.sessionComment }}</p>
+     <p><strong>comment id</strong>{{comment.idComment}}</p>
+      <p><strong>Created At:</strong> {{ comment.createdAt | date:'short' }}</p>
+      <p><strong>Session commented:</strong> {{ comment.sessionComment.idSession}}</p>
       <p><strong>Content:</strong> {{ comment.content }}</p>
-      <p><strong>Posted By:</strong> {{ comment.postedBy }}</p>
+      <p><strong>Posted By:</strong> {{ comment.postedBy.nom }}</p>
+      <p><strong>reply</strong>{{ comment.Reply}}</p>
        <!-- Delete Comment Button -->
     <button (click)="deleteComment( comment.idComment)">Delete Comment</button>
+    <app-reply></app-reply>
+    <div *ngFor="let reply of comment.replies">
+      <div class="reply-line">
+          <span><strong>Reply Content:</strong> {{reply.contentReply}}</span>
+          <span><strong>Reply Date:</strong> {{reply.replyDate | date:'short'}}</span>
+          <span><strong>Replied By:</strong> {{reply.repliedby.nom}}</span>
+          <button (click)="deleteReply( reply.idRply)">Delete Reply</button>
+      </div>
+  </div>
+
     </div>
 </div>
 
@@ -70,7 +81,7 @@
   }
 
   button {
-    background-color: #4CAF50;
+    background-color: #900;
     color: white;
     padding: 12px 20px;
     border: none;
@@ -116,4 +127,17 @@
 .comment-box strong {
   color: black;
 }
+reply-line {
+    margin-bottom: 20px; /* Adjust as needed */
+}
+.reply-line {
+    margin-bottom: 20px; /* Adjust as needed */
+    border-bottom: 1px solid #000; /* Adds a line after each reply */
+}
+.reply-line span {
+    display: inline-block; /* Makes each attribute appear after each other */
+    color: darkred; /* Makes the text dark red */
+    margin-right: 10px; /* Adds some space between the attributes */
+}
+
 </style>
