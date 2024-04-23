@@ -16,6 +16,8 @@ import { AllTemplateBackComponent } from './BackOffice/all-template-back/all-tem
 import { SidebarComponent } from './BackOffice/sidebar/sidebar.component';
 import { NavbarComponent } from './BackOffice/navbar/navbar.component';
 import { SessionbackComponent } from './BackOffice/sessionback/sessionback.component';
+import { EventFrontComponent } from './FrontOffice/event-front/event-front.component';
+import { EventBackComponent } from './BackOffice/event-back/event-back.component';
 
 
 @NgModule({
@@ -34,6 +36,8 @@ import { SessionbackComponent } from './BackOffice/sessionback/sessionback.compo
       SidebarComponent,
       NavbarComponent,
       SessionbackComponent,
+      EventFrontComponent,
+      EventBackComponent,
 
 
 
