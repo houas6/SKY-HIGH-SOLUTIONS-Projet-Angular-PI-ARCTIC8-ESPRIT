@@ -1,5 +1,5 @@
 export class Reply {
-  //idReply!: number;
+  idReply!: number;
   contentReply!: string;
   replyDate!: Date;
   Repliedat!:{

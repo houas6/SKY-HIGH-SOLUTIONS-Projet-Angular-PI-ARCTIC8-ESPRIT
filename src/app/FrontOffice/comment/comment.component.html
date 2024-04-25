@@ -30,6 +30,10 @@
       <p><strong>reply</strong>{{ comment.Reply}}</p>
        <!-- Delete Comment Button -->
     <button (click)="deleteComment( comment.idComment)">Delete Comment</button>
+    <button (click)="runPythonScript()">Run Python Script</button>
+    <p><strong>reply</strong>{{ comment.satisfaction}}</p>
+
+
     <app-reply></app-reply>
     <div *ngFor="let reply of comment.replies">
       <div class="reply-line">
@@ -42,6 +46,8 @@
 
     </div>
 </div>
+
+
 
 
 <!-- Add any additional styling as needed -->

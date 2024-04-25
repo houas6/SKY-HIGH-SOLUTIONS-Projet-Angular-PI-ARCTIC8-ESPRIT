@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Session } from '../../FrontOffice/Session';
 import { SessionService } from '../../Services/session.service';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-sessionback',
@@ -14,7 +15,7 @@ export class SessionbackComponent implements OnInit{
   sessions: Session[] = [];
   editSession: Session | null = null;
 
-  constructor( private formBuilder: FormBuilder,private sessionService: SessionService){
+  constructor( private formBuilder: FormBuilder,private sessionService: SessionService,private http: HttpClient){
 
     this.sessionForm = this.formBuilder.group({
       idSession: ['', [Validators.required, Validators.pattern('^[0-9]+$')]],
@@ -110,6 +111,15 @@ export class SessionbackComponent implements OnInit{
       }
     );
   }
+  runPythonScript() {
+
+    this.http.post('http://localhost:8082/revisionsbd/runscript', {}).subscribe(
+      res => console.log(res),
+      err => console.error(err)
+
+    );
+  }
+
 
 
 }

@@ -9,4 +9,5 @@ export class Comment {
   sessionComment!: {
     idSession: number;
   };
+  satisfaction!:number;
 }
