@@ -30,4 +30,15 @@ export class RessourceComponent implements OnInit{
       }
     );
   }
+  
+  downloadFile(ressource: Ressource): string {
+    // Assuming the content type is always 'application/pdf'
+    const blob = new Blob([ressource.content], { type: 'application/pdf' });
+    return window.URL.createObjectURL(blob);
+  }
+
+  getFileName(ressource: Ressource): string {
+    // Assuming the file name is stored in the description property
+    return ressource.description;
+  }
 }

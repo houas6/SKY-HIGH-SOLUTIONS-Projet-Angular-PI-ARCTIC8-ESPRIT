@@ -8,7 +8,7 @@ import { Ressource } from '../FrontOffice/Ressource';
 })
 export class RessourceService {
   private baseUrl :string = 'http://localhost:8089/Gestion-ressources/Ressource/'
-
+  private baseUrl1 :string = 'http://localhost:8089/Gestion-ressources/'
   constructor(public http:HttpClient) { }
   
   getRessource(): Observable<Ressource[]>{
@@ -17,7 +17,12 @@ export class RessourceService {
 
   addRessource(ressource: Ressource): Observable<Ressource> {
     return this.http.post<Ressource>(this.baseUrl + 'add-Ressource', ressource);
-}
+} 
+
+/*addRessource(ressource: Ressource): Observable<Ressource> {
+  const url = `${this.baseUrl1}add-Ressource`;
+  return this.http.post<Ressource>(url, ressource);
+}*/
 
  
   updateRessource(ressource: Ressource): Observable<Ressource> {

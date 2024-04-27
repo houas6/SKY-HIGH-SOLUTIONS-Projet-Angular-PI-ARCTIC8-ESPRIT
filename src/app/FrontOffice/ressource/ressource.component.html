@@ -9,13 +9,14 @@
       </tr>
     </thead>
     <tbody>
-      <div *ngFor="let ressource of Ressources">
-        <h2>Description: {{ ressource.description }}</h2>
-        <p>Type: {{ ressource.type }}</p>
-        <p>Content: {{ ressource.content }}</p>
-        <!-- Add download link for content if applicable -->
-      </div>
-      
+      <tr *ngFor="let ressource of Ressources">
+        <td>{{ ressource.date_ajout }}</td>
+        <td>{{ ressource.description }}</td>
+        <td>{{ ressource.type }}</td>
+        <td>
+          <a [href]="downloadFile(ressource)" download>Download {{ getFileName(ressource) }}</a>
+        </td>
+      </tr>
     </tbody>
   </table>
 </div>
