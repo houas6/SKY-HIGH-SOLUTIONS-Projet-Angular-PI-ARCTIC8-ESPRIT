@@ -1,27 +1,74 @@
-# TestAng
+**Gestion Events Angular Application**
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.3.0.
+## 📝 Description
+Gestion Events is an Angular web application designed for event management. It provides functionalities to add, update, delete, and view events. The application features a user-friendly interface for managing events efficiently.
 
-## Development server
+## 🚀 Technologies Used
+- **Angular**: Front-end framework for building single-page applications.
+- **HTML/CSS/Bootstrap**: Front-end technologies for styling and layout.
+- **TypeScript**: Programming language for Angular development.
+- **Node.js/npm**: JavaScript runtime and package manager.
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+## ⚙️ Setup Instructions
+1. **Clone the repository**:
+   ```bash
+   git clone <repository-url>
+   ```
+2. **Navigate to the project directory**:
+   ```bash
+   cd gestion-events-angular
+   ```
+3. **Install dependencies**:
+   ```bash
+   npm install
+   npm update //in case it doesn't work, we're working on ANGULAR 17
+   ```
 
-## Code scaffolding
+## 🏃‍♂️ Running the Application
+1. **Start the development server**:
+   ```bash
+   ng serve
+   ```
+2. **Access the application**:
+   ```
+   http://localhost:4200
+   ```
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+## 📌 Usage
+1. **Adding an Event**:
+   - Click on the "Add Event" button.
+   - Fill out the required fields in the form.
+   - Click the "Submit" button to add the event.
 
-## Build
+2. **Viewing Events**:
+   - Events are displayed in a table format on the main page.
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+3. **Updating an Event**:
+   - Click on an event in the table to select it.
+   - Modify the desired fields.
+   - Click the "Submit" button to update the event.
 
-## Running unit tests
+4. **Deleting an Event**:
+   - Click on the "Delete" button next to the event.
+   - Confirm the deletion when prompted.
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+5. **Searching for an Event by ID**:
+   - Enter the event ID in the input field.
+   - Click the "Find by ID" button to search for the event.
 
-## Running end-to-end tests
+## 📂 Folder Structure
+- **src/app**: Contains Angular components, services, and modules.
+- **src/assets**: Contains static assets such as images and stylesheets.
+- **src/environments**: Contains environment configuration files.
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+## 🤝 Contributing
+Contributions are welcome! Fork the repository and submit a pull request with your changes.
 
-## Further help
+## 📄 License
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+## 📧 Contact
+For any inquiries or issues, please contact Rim Dammak at dammakrim2003@gmail.com.
+
+---
+
