@@ -39,11 +39,6 @@ import { EventBackComponent } from './BackOffice/event-back/event-back.component
       EventFrontComponent,
       EventBackComponent,
 
-
-
-
-
-
   ],
   imports: [
     BrowserModule,

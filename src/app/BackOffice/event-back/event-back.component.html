@@ -1,1 +1,105 @@
-<p>event-back works!</p>
+<table>
+    <thead>
+     
+
+<!-- Add this in your HTML -->
+<div class="form-group">
+  <label for="id">Event ID:</label>
+  <input type="text" id="id" formControlName="id" class="form-control">
+</div>
+<button (click)="findById()" class="btn btn-primary">Find by ID</button>
+
+
+      <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Description</th>
+        <th>Location</th>
+        <th>Start Time</th>
+        <th>End Time</th>
+        <th>Status</th>
+        <th>Capacity</th>
+        <th>Event Image URL</th>
+        <th>Event Image Name</th>
+        <th>Modalite</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let event of events">
+        <td>{{event.id}}</td>
+        <td>{{event.name}}</td>
+        <td>{{event.description}}</td>
+        <td>{{event.location}}</td>
+        <td>{{event.startTime}}</td>
+        <td>{{event.endTime}}</td>
+        <td>{{event.status}}</td>
+        <td>{{event.capacity}}</td>
+        <td>{{event.event_img_url}}</td>
+        <td>{{event.event_img_name}}</td>
+        <td>{{event.modalite}}</td>
+        <td>
+          <button (click)="deleteEvent(event.id)">Delete</button>
+         
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  
+  <h2>Add Event</h2>
+  <form [formGroup]="eventForm" (ngSubmit)="addEvent()" class="custom-bg text-white p-4 rounded">
+    <!-- Add other form controls here... -->
+
+    <div class="mb-3">
+      <label for="name" class="form-label text-danger">Name:</label>
+      <input id="name" type="text" formControlName="name" class="form-control bg-light text-dark" placeholder="Name" required>
+    </div>
+    <div class="mb-3">
+      <label for="description" class="form-label text-danger">Description:</label>
+      <textarea id="description" formControlName="description" class="form-control bg-light text-dark" placeholder="Description" required></textarea>
+    </div>
+    <div class="mb-3">
+      <label for="location" class="form-label text-danger">Location:</label>
+      <input id="location" type="text" formControlName="location" class="form-control bg-light text-dark" placeholder="Location" required>
+    </div>
+    <div class="mb-3">
+      <label for="startTime" class="form-label text-danger">Start Time:</label>
+      <input id="startTime" type="datetime-local" formControlName="startTime" class="form-control bg-light text-dark" required>
+    </div>
+    <div class="mb-3">
+      <label for="endTime" class="form-label text-danger">End Time:</label>
+      <input id="endTime" type="datetime-local" formControlName="endTime" class="form-control bg-light text-dark" required>
+    </div>
+    <div class="mb-3">
+      <label for="status" class="form-label text-danger">Status:</label>
+      <input id="status" type="checkbox" formControlName="status" class="form-control bg-light text-dark">
+    </div>
+    <div class="mb-3">
+      <label for="capacity" class="form-label text-danger">Capacity:</label>
+      <input id="capacity" type="number" formControlName="capacity" class="form-control bg-light text-dark" placeholder="Capacity" required>
+    </div>
+    <div class="mb-3">
+      <label for="event_img_url" class="form-label text-danger">Event Image URL:</label>
+      <input id="event_img_url" type="url" formControlName="event_img_url" class="form-control bg-light text-dark" placeholder="Event Image URL" required>
+    </div>
+
+    <div class="mb-3">
+      <label for="event_img_name" class="form-label text-danger">Event Image Name:</label>
+      <input id="event_img_name" type="text" formControlName="event_img_name" class="form-control bg-light text-dark" placeholder="Event Image Name" required>
+    </div>
+    <div class="mb-3">
+      <label for="modalite" class="form-label text-danger">Mode:</label>
+      <select id="modalite" formControlName="modalite" class="form-select bg-light text-dark">
+        <option *ngFor="let modalite of modalites" [value]="modalite" class="bg-light text-dark">{{modalite}}</option>
+      </select>
+    </div>
+   
+
+    <div class="mb-3">
+      <label for="users" class="form-label text-danger">User ID to join:</label>
+      <select id="users " formControlName="users" class="form-select bg-light text-dark">
+        <option *ngFor="let users of users" [value]="users" class="bg-light text-dark">{{users}}</option>
+      </select>
+    </div>
+    <button type="submit" class="btn btn-danger">Submit</button>
+  </form>
+  

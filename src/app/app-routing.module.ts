@@ -4,10 +4,23 @@ import { AllTemplateFrontComponent } from './FrontOffice/all-template-front/all-
 import { SessionComponent } from './FrontOffice/session/session.component';
 import { AllTemplateBackComponent } from './BackOffice/all-template-back/all-template-back.component';
 import { SessionbackComponent } from './BackOffice/sessionback/sessionback.component';
+import { EventBackComponent } from './BackOffice/event-back/event-back.component';
 
 const routes: Routes = [
    {
     path:"admin",
+    component:AllTemplateBackComponent
+   },{
+    path:"back",
+    component:EventBackComponent
+    ,data:{title:"Admin| Event "}
+   },{
+    path:"event",
+    component:EventBackComponent
+    ,data:{title:"Event"}
+   },
+   {
+    path:"",
     component:AllTemplateBackComponent
    },
    {

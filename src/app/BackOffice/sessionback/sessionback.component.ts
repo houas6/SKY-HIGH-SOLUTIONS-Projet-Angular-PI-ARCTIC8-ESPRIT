@@ -13,7 +13,7 @@ export class SessionbackComponent implements OnInit{
   modalites:string[]= ['Hybride','Online','Presentiel'];
   sessions: Session[] = [];
   editSession: Session | null = null;
-
+  
   constructor( private formBuilder: FormBuilder,private sessionService: SessionService){
 
     this.sessionForm = this.formBuilder.group({
@@ -30,6 +30,13 @@ export class SessionbackComponent implements OnInit{
       })
     });
   }
+ 
+
+
+findByName() {
+  // Call your service to search by name
+}
+
 
   ngOnInit() {
     this.sessionService.getSession().subscribe(
@@ -43,6 +50,7 @@ export class SessionbackComponent implements OnInit{
       }
     );
   }
+  
   addSession() {
     // Create a new session from the form values
     const newSession: Session = this.sessionForm.value;
