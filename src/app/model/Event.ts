@@ -13,6 +13,6 @@ export interface EventModel {
     event_img_name: string;
 
     modalite: Modalite;
-    users: number[];
+    users?: number[];
 }
 

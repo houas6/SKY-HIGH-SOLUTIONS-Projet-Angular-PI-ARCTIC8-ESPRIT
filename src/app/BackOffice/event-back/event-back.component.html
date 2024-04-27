@@ -44,15 +44,24 @@
       </tr>
     </tbody>
   </table>
-  
-  <h2>Add Event</h2>
-  <form [formGroup]="eventForm" (ngSubmit)="addEvent()" class="custom-bg text-white p-4 rounded">
-    <!-- Add other form controls here... -->
-
-    <div class="mb-3">
-      <label for="name" class="form-label text-danger">Name:</label>
-      <input id="name" type="text" formControlName="name" class="form-control bg-light text-dark" placeholder="Name" required>
-    </div>
+  <style>
+    /* Custom CSS for white placeholders */
+    .custom-bg ::placeholder {
+      color: white;
+    }
+  </style>
+  <div class="container" style="margin: 0 auto;">
+    <div class="custom-bg rounded p-4" style="max-width: 600px;">
+      <div class="d-flex align-items-left justify-content-between mb-4">
+        <h6 class="mb-0">Add Event</h6>
+      </div>
+      <div class="table-responsive">
+        <form [formGroup]="eventForm" (ngSubmit)="editEvent ? updateEvent() : addEvent()" class="custom-bg text-white p-4 rounded">
+          <!-- Add your input fields here -->
+          <div class="mb-3">
+            <label for="name" class="form-label text-danger">Event Name:</label>
+            <input id="name" type="text" formControlName="name" class="form-control bg-light text-dark" placeholder="Event Name">
+          </div>
     <div class="mb-3">
       <label for="description" class="form-label text-danger">Description:</label>
       <textarea id="description" formControlName="description" class="form-control bg-light text-dark" placeholder="Description" required></textarea>
@@ -94,12 +103,7 @@
     </div>
    
 
-    <div class="mb-3">
-      <label for="users" class="form-label text-danger">User ID to join:</label>
-      <select id="users " formControlName="users" class="form-select bg-light text-dark">
-        <option *ngFor="let users of users" [value]="users" class="bg-light text-dark">{{users}}</option>
-      </select>
-    </div>
+
     <button type="submit" class="btn btn-danger">Submit</button>
   </form>
   

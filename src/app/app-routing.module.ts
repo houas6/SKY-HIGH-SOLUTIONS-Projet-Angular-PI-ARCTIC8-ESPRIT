@@ -8,10 +8,10 @@ import { EventBackComponent } from './BackOffice/event-back/event-back.component
 
 const routes: Routes = [
    {
-    path:"admin",
+    path:"adminevent",
     component:AllTemplateBackComponent
    },{
-    path:"back",
+    path:"backevent",
     component:EventBackComponent
     ,data:{title:"Admin| Event "}
    },{
@@ -25,6 +25,10 @@ const routes: Routes = [
    },
    {
     path:"test",
+    component:AllTemplateFrontComponent
+  },
+  {
+    path:"frontevent",
     component:AllTemplateFrontComponent
   },
   {

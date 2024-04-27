@@ -12,11 +12,10 @@ export class EventBackComponent implements OnInit {
   events: EventModel[] = [];
   selectedEvent: EventModel | null = null;
   modalites:string[]= ['Hybride','Online','Presentiel'];
-  users: string[]= ['1','2','3'];
+  editEvent: EventModel | null = null;
 
   constructor(private formBuilder: FormBuilder, private eventService: EventService) {
     this.eventForm = this.formBuilder.group({
-     
       name: ['', Validators.required],
       description: ['', Validators.required],
       location: ['', Validators.required],
@@ -26,13 +25,7 @@ export class EventBackComponent implements OnInit {
       capacity: ['', Validators.required],
       event_img_url: ['', Validators.required],
       event_img_name: ['', Validators.required],
-
-      modalite: this.formBuilder.group({
-        // Add FormControl for each property of Modalite here
-      }),
-      users: this.formBuilder.group({
-        // Add FormControl for each property of Modalite here
-      }),// Initialize as an empty array
+      modalite: ['', Validators.required],
     });
   }
 
@@ -79,10 +72,12 @@ findById(): void {
     alert('Please enter an ID before searching.');
   }
 }
-
   addEvent(): void {
+    console.log(this.eventForm.value);
+
     if (this.eventForm.valid) {
       const newEvent: EventModel = this.eventForm.value;
+      newEvent.users=[];
       this.eventService.addEvent(newEvent).subscribe(
         newEvent => {
           if (newEvent) {
@@ -131,4 +126,5 @@ findById(): void {
       error => console.error('Error deleting the event', error)
     );
   }
+  
 }
