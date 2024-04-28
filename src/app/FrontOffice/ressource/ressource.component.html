@@ -1,3 +1,4 @@
+<!--
 <div *ngIf="Ressources && Ressources.length > 0; else noDataTemplate">
   <table>
     <thead>
@@ -23,4 +24,24 @@
 <ng-template #noDataTemplate>
   <p>No Resources found.</p>
 </ng-template>
-<router-outlet></router-outlet>
+<router-outlet></router-outlet> -->
+<div *ngIf="Ressources && Ressources.length > 0;">
+  <div class="row">
+    <div class="mix col-lg-3 col-md-4 col-sm-6 web" *ngFor="let ressource of Ressources">
+      <div class="course-item">
+        <div class="course-thumb set-bg" style="background-image: url('/assets/FrontOffice/img/pdf.png')">
+          <!-- Default PDF icon -->
+          <div class="price"><a [href]="downloadFile(ressource)" download style="color: white;">Download</a></div>
+        </div>
+        <div class="course-info">
+          <div class="course-text">
+            <h5>{{ ressource.description }}</h5>
+            <p>Type: {{ ressource.type }}</p>
+            <!-- Remove the Students section -->
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+

@@ -5,6 +5,7 @@ import { RessourceService } from '../../Services/ressource.service';
 import { Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import { saveAs } from 'file-saver';
+import { Type } from "../Type";
 @Component({
   selector: 'app-ressource',
   templateUrl: './ressource.component.html',
@@ -14,6 +15,7 @@ import { saveAs } from 'file-saver';
 export class RessourceComponent implements OnInit{
 
   Ressources: Ressource[]=[];
+  filterType: Type | null = null;
 
   constructor(private ressourceService: RessourceService) { }
 
@@ -40,7 +42,7 @@ export class RessourceComponent implements OnInit{
       return '';
     }
   }
-  
+ 
   
   
 
