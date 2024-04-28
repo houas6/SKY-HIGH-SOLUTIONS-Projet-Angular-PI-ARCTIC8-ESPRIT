@@ -11,6 +11,9 @@ export class RessourceService {
   private baseUrl1 :string = 'http://localhost:8089/Gestion-ressources/'
   constructor(public http:HttpClient) { }
   
+  downloadFile(id: number): Observable<Blob> {
+    return this.http.get('http://localhost:8089/Gestion-ressources/Ressource/download/' + id, { responseType: 'blob' });
+  }
   getRessource(): Observable<Ressource[]>{
     return this.http.get<Ressource[]>(  this.baseUrl + 'retrieve-all-Ressources');
   }

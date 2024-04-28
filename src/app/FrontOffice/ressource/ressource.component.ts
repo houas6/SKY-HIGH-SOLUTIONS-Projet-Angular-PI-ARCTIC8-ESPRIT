@@ -4,6 +4,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { RessourceService } from '../../Services/ressource.service';
 import { Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
+import { saveAs } from 'file-saver';
 @Component({
   selector: 'app-ressource',
   templateUrl: './ressource.component.html',
@@ -32,10 +33,16 @@ export class RessourceComponent implements OnInit{
   }
   
   downloadFile(ressource: Ressource): string {
-    // Assuming the content type is always 'application/pdf'
-    const blob = new Blob([ressource.content], { type: 'application/pdf' });
-    return window.URL.createObjectURL(blob);
+    if (ressource.idRessources !== undefined) {
+      return 'http://localhost:8089/Gestion-ressources/Ressource/download/' + ressource.idRessources;
+    } else {
+      console.error('Resource ID is undefined');
+      return '';
+    }
   }
+  
+  
+  
 
   getFileName(ressource: Ressource): string {
     // Assuming the file name is stored in the description property
