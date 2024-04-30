@@ -1,37 +1,32 @@
-import {  NgModule } from '@angular/core';
+import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { AllTemplateFrontComponent } from './FrontOffice/all-template-front/all-template-front.component';
-import { SessionComponent } from './FrontOffice/session/session.component';
-import { AllTemplateBackComponent } from './BackOffice/all-template-back/all-template-back.component';
-import { SessionbackComponent } from './BackOffice/sessionback/sessionback.component';
-import { CommentComponent } from './FrontOffice/comment/comment.component';
-import { ReplyComponent } from './FrontOffice/reply/reply.component';
-
+import { OffreComponent } from './offre/offre.component';
+import { SidebarComponent } from './sidebar/sidebar.component';
+import { SessionComponent } from './session/session.component';
+import { AddsessionComponent } from './session/addsession/addsession.component';
+import { UpdatesessionComponent } from './session/updatesession/updatesession.component';
+import { CalendarComponent } from './calendar/calendar.component';
+import { MaterielComponent } from './materiel/materiel.component';
+import { AddmaterielComponent } from './materiel/addmateriel/addmateriel.component';
+import { UpdatematerielComponent } from './materiel/updatemateriel/updatemateriel.component';
+import { StudygComponent } from './studyg/studyg.component';
+import { AddStudygComponent } from './studyg/add-studyg/add-studyg.component';
+import { UpdateStudygComponent } from './studyg/update-studyg/update-studyg.component';
+import { OussamaComponent } from './oussama/oussama.component';
 const routes: Routes = [
-   {
-    path:"admin",
-    component:AllTemplateBackComponent
-   },
-   {
-    path:"test",
-    component:AllTemplateFrontComponent
-  },
-  {
-  path:"list",
-  component:SessionComponent
-  },
-  {
-    path:"form",
-    component:SessionbackComponent
-  },
-  {
-    path:"comment",
-    component:CommentComponent
-  },
-  {
-    path:"reply",
-    component:ReplyComponent
-  }
+  {path: 'offre', component: OffreComponent},
+  {path: 'sidebar', component: SidebarComponent},
+  {path: 'session', component: SessionComponent},
+  {path: 'addsess', component: AddsessionComponent},
+  {path: 'update-sess/:id', component: UpdatesessionComponent},
+  {path: 'calendar', component: CalendarComponent},
+  {path: 'materiel', component: MaterielComponent},
+  {path: 'addmat', component: AddmaterielComponent},
+  {path: 'update-mat/:id', component: UpdatematerielComponent},
+  {path: 'studyg', component: StudygComponent},
+  {path: 'addsg', component: AddStudygComponent},
+  {path: 'updatesg/:id', component: UpdateStudygComponent},
+  {path: 'oues', component: OussamaComponent},
 
 ];
 
@@ -39,4 +34,6 @@ const routes: Routes = [
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {
+ 
+ }

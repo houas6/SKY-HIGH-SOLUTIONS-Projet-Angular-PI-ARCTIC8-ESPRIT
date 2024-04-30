@@ -1,30 +1,38 @@
-import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import {HttpClient} from "@angular/common/http";
 import { Observable } from 'rxjs';
-import { Session } from '../FrontOffice/Session';
+
 
 @Injectable({
   providedIn: 'root'
 })
 export class SessionService {
-  private baseUrl: string = 'http://localhost:8082/revisionsbd/session/';
 
-  constructor(public http: HttpClient) { }
-
-  getSession(): Observable<Session[]> {
-    return this.http.get<Session[]>(this.baseUrl + 'retrieve-all-sessions');
-
+  constructor(private http: HttpClient) { }
+  getSession(){
+    return this.http.get('http://localhost:8075/getAll')
   }
-  addSession(session: Session): Observable<Session>{
-    return this.http.post<Session>(this.baseUrl +'add-session',session);
-  }
-  updateSession(session: Session): Observable<Session> {
-    return this.http.patch<Session>(this.baseUrl + 'update-session',session);
-  }
-  deleteSession(id:number): Observable<void> {
-    console.log("test delete");
+  updateSession(id:any,user:any){
 
-    return this.http.delete<void>('http://localhost:8082/revisionsbd/session/remove-session/'+id);
+    return this.http.put('http://localhost:8075/update/'+id,user)
+   }
+
+  addSession(user:any){
+    return this.http.post('http://localhost:8075/add',user)
   }
 
+
+  deleteSession(id:any){
+
+    return this.http.delete('http://localhost:8075/delete/'+id)
+  }
+
+  sessionDetails(id:any){
+
+    return this.http.get('http://localhost:8075/session/'+id)
+  }
+
+  assignMaterialToSession(idSession: number, pack: string): Observable<any> {
+    return this.http.post<any>(`http://localhost:8075/${idSession}/assign-material?pack=${pack}`, {});
+  }
 }

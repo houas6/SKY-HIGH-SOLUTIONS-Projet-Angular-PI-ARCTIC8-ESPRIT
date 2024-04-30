@@ -1,69 +1,52 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
+import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { DynamicComponent } from './FrontOffice/dynamic/dynamic.component';
-import { HeaderComponent } from './FrontOffice/header/header.component';
-import { FooterComponent } from './FrontOffice/footer/footer.component';
-import { AllTemplateFrontComponent } from './FrontOffice/all-template-front/all-template-front.component';
-import { GoogleMapsModule } from '@angular/google-maps';
-
-import { HttpClientModule } from '@angular/common/http';
-import { SessionComponent } from './FrontOffice/session/session.component';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { AllTemplateBackComponent } from './BackOffice/all-template-back/all-template-back.component';
-import { SidebarComponent } from './BackOffice/sidebar/sidebar.component';
-import { NavbarComponent } from './BackOffice/navbar/navbar.component';
-import { SessionbackComponent } from './BackOffice/sessionback/sessionback.component';
-import { CommentComponent } from './FrontOffice/comment/comment.component';
-
-import { CommonModule } from '@angular/common';
-import { ReplyComponent } from './FrontOffice/reply/reply.component';
-
-
+import { OffreComponent } from './offre/offre.component';
+import { FormsModule } from '@angular/forms';
+import { SidebarComponent } from './sidebar/sidebar.component';
+import { SessionComponent } from './session/session.component';
+import { AddsessionComponent } from './session/addsession/addsession.component';
+import { UpdatesessionComponent } from './session/updatesession/updatesession.component';
+import { CommonModule, DatePipe } from '@angular/common';
+import { CalendarComponent } from './calendar/calendar.component';
+import { MaterielComponent } from './materiel/materiel.component';
+import { AddmaterielComponent } from './materiel/addmateriel/addmateriel.component';
+import { UpdatematerielComponent } from './materiel/updatemateriel/updatemateriel.component';
+import { StudygComponent } from './studyg/studyg.component';
+import { AddStudygComponent } from './studyg/add-studyg/add-studyg.component';
+import { UpdateStudygComponent } from './studyg/update-studyg/update-studyg.component';
+import { OussamaComponent } from './oussama/oussama.component';
+import { NavbarComponent } from './navbar/navbar.component';
 
 @NgModule({
-
-
   declarations: [
     AppComponent,
-
-    DynamicComponent,
-    HeaderComponent,
-    FooterComponent,
-    AllTemplateFrontComponent,
-
+    OffreComponent,
+    SidebarComponent,
     SessionComponent,
-      AllTemplateBackComponent,
-      SidebarComponent,
-      NavbarComponent,
-      SessionbackComponent,
-      CommentComponent,
-      ReplyComponent,
-
-
-
-
-
-
-
+    AddsessionComponent,
+    UpdatesessionComponent,
+    CalendarComponent,
+    MaterielComponent,
+    AddmaterielComponent,
+    UpdatematerielComponent,
+    StudygComponent,
+    AddStudygComponent,
+    UpdateStudygComponent,
+    OussamaComponent,
+    NavbarComponent,
+    
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule,
     HttpClientModule,
-    ReactiveFormsModule,
-    GoogleMapsModule,
-    FormsModule,
-
-
-
+    FormsModule ,
+    CommonModule,
+    AppRoutingModule
   ],
-
-  providers: [],
+  providers: [DatePipe],
   bootstrap: [AppComponent]
 })
-export class AppModule {
-
- }
+export class AppModule { }

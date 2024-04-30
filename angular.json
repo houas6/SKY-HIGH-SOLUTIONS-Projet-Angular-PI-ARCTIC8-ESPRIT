@@ -3,31 +3,19 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "testAng": {
+    "pidevBugButtlers": {
       "projectType": "application",
-      "schematics": {
-        "@schematics/angular:component": {
-          "standalone": false
-        },
-        "@schematics/angular:directive": {
-          "standalone": false
-        },
-        "@schematics/angular:pipe": {
-          "standalone": false
-        }
-      },
+      "schematics": {},
       "root": "",
       "sourceRoot": "src",
       "prefix": "app",
       "architect": {
         "build": {
-          "builder": "@angular-devkit/build-angular:application",
+          "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/test-ang",
+            "outputPath": "dist/pidev-bug-buttlers",
             "index": "src/index.html",
-
-            "browser": "src/main.ts",
-
+            "main": "src/main.ts",
             "polyfills": [
               "zone.js"
             ],
@@ -58,26 +46,24 @@
               "outputHashing": "all"
             },
             "development": {
+              "buildOptimizer": false,
               "optimization": false,
+              "vendorChunk": true,
               "extractLicenses": false,
-              "sourceMap": true
+              "sourceMap": true,
+              "namedChunks": true
             }
           },
           "defaultConfiguration": "production"
         },
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
-          "options": {
-            "buildTarget": "testAng:build:development",
-            "proxyConfig":"src/proxy.conf.json"
-
-          },
           "configurations": {
             "production": {
-              "buildTarget": "testAng:build:production"
+              "browserTarget": "pidevBugButtlers:build:production"
             },
             "development": {
-              "buildTarget": "testAng:build:development"
+              "browserTarget": "pidevBugButtlers:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -85,7 +71,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "buildTarget": "testAng:build"
+            "browserTarget": "pidevBugButtlers:build"
           }
         },
         "test": {
@@ -110,6 +96,6 @@
     }
   },
   "cli": {
-    "analytics": "361d8ad4-4005-4737-ac73-19869ada9aa8"
+    "analytics": false
   }
 }
