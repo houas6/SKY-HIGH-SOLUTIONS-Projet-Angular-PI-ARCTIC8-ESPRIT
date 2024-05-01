@@ -20,6 +20,9 @@ import { CommentComponent } from './FrontOffice/comment/comment.component';
 
 import { CommonModule } from '@angular/common';
 import { ReplyComponent } from './FrontOffice/reply/reply.component';
+import { ChartComponent } from './BackOffice/chart/chart.component';
+
+import { CanvasJSAngularChartsModule } from '@canvasjs/angular-charts';
 
 
 
@@ -41,6 +44,10 @@ import { ReplyComponent } from './FrontOffice/reply/reply.component';
       SessionbackComponent,
       CommentComponent,
       ReplyComponent,
+      ChartComponent,
+      NavbarComponent
+
+
 
 
 
@@ -56,6 +63,8 @@ import { ReplyComponent } from './FrontOffice/reply/reply.component';
     ReactiveFormsModule,
     GoogleMapsModule,
     FormsModule,
+    CanvasJSAngularChartsModule,
+    CommonModule
 
 
 

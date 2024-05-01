@@ -29,6 +29,8 @@ export class CommentComponent implements OnInit {
   idSession!: number; // will be set based on the session that was clicked
   // will be set by user input
   commentForm!:FormGroup;
+  satisfactionSum: any;
+  showComments = false;
 
   constructor(private commentService: CommentServiceService,private formBuilder:FormBuilder,private replyService: ReplyServiceService,private http: HttpClient) {
     this.commentForm = this.formBuilder.group({
@@ -104,10 +106,18 @@ export class CommentComponent implements OnInit {
   runPythonScript() {
 
     this.http.post('http://localhost:8082/revisionsbd/runscript', {}).subscribe(
-      res => console.log(res),
-      err => console.error(err)
+      res => {console.log(res),
 
-    );
+
+        this.satisfactionSum = res;
+        console.log('after res'); },
+        err => console.error(err)
+
+
+      );
+  }
+  toggleComments() {
+    this.showComments = !this.showComments;
   }
 
 

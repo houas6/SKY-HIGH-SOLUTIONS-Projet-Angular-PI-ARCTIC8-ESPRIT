@@ -1,4 +1,6 @@
+<h6 style="color: rgb(185, 45, 45);">Reply</h6>
 <form [formGroup]="replyForm" (ngSubmit)="createReply()">
+
   <div class="form-group">
       <label for="commentId">Comment ID:</label>
       <input formControlName="commentId" type="text" id="commentId" name="commentId">
@@ -9,6 +11,7 @@
   </div>
   <div class="form-group">
       <button type="submit">Submit</button>
+
   </div>
 </form>
 <style>

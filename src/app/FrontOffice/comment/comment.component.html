@@ -15,12 +15,14 @@
   </form>
 </div>
 
+<button (click)="toggleComments()">Show  Comments</button>
 
 <!-- Comments Section -->
 
   <h5 style="color: rgb(185, 45, 45);">All Comments</h5>
   <!-- Iterate through comments and display them -->
-  <div *ngFor="let comment of comments">
+  <ng-container *ngIf="showComments">
+    <div *ngFor="let comment of comments">
     <div class="comment-box">
      <p><strong>comment id</strong>{{comment.idComment}}</p>
       <p><strong>Created At:</strong> {{ comment.createdAt | date:'short' }}</p>
@@ -30,8 +32,8 @@
       <p><strong>reply</strong>{{ comment.Reply}}</p>
        <!-- Delete Comment Button -->
     <button (click)="deleteComment( comment.idComment)">Delete Comment</button>
-    <button (click)="runPythonScript()">Run Python Script</button>
-    <p><strong>reply</strong>{{ comment.satisfaction}}</p>
+    <button (click)="runPythonScript()">see satisfaction </button>
+    <p><strong>satisfaction</strong>{{ comment.satisfaction}}</p>
 
 
     <app-reply></app-reply>
@@ -46,6 +48,7 @@
 
     </div>
 </div>
+</ng-container>
 
 
 

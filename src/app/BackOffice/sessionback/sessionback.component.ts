@@ -14,6 +14,8 @@ export class SessionbackComponent implements OnInit{
   modalites:string[]= ['Hybride','Online','Presentiel'];
   sessions: Session[] = [];
   editSession: Session | null = null;
+  comment: any[]=[];
+  satisfactionSum: any;
 
   constructor( private formBuilder: FormBuilder,private sessionService: SessionService,private http: HttpClient){
 
@@ -114,8 +116,13 @@ export class SessionbackComponent implements OnInit{
   runPythonScript() {
 
     this.http.post('http://localhost:8082/revisionsbd/runscript', {}).subscribe(
-      res => console.log(res),
+      res => {console.log(res),
+
+
+      this.satisfactionSum = res;
+      console.log('after res'); },
       err => console.error(err)
+
 
     );
   }
