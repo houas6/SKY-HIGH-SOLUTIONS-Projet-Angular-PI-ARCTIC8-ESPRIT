@@ -1,0 +1,92 @@
+<link href="https://fonts.googleapis.com/css?family=Raleway:400,400i,500,500i,600,600i,700,700i,800,800i" rel="stylesheet">
+
+<!-- Stylesheets -->
+<title>WebUni - Education Template</title>
+<meta charset="UTF-8">
+<meta name="description" content="WebUni Education Template">
+<meta name="keywords" content="webuni, education, creative, html">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!-- Favicon -->
+<link href="img/favicon.ico" rel="shortcut icon"/>
+<link rel="stylesheet" href="/assets/FrontOffice/css/bootstrap.min.css"/>
+<link rel="stylesheet" href="/assets/FrontOffice/css/font-awesome.min.css"/>
+<link rel="stylesheet" href="/assets/FrontOffice/css/owl.carousel.css"/>
+<link rel="stylesheet" href="/assets/FrontOffice/css/style.css"/>
+
+<app-header></app-header>
+
+<div class="row d-flex align-items-center justify-content-center">
+  <div class="col-lg-6 text-center">
+
+    <div class="section-title">
+      <h2>Add new complaint!</h2>
+    </div>
+
+<form [formGroup]="complaintForm" (ngSubmit)="addComplaint()" class="signup-form" *ngIf=showComplaint>
+
+  <div>
+    <label for="category">Category:</label>
+    <input type="text" id="category" formControlName="category">
+  </div>
+
+  <div>
+    <label for="object">Object:</label>
+    <input type="text" id="object" formControlName="object">
+  </div>
+
+  <div>
+    <label for="description">Description:</label>
+    <textarea id="description" formControlName="description"></textarea>
+  </div>
+
+  <button type="submit" class="btn btn-success" [disabled]="!complaintForm.valid">Add Complaint</button>
+
+  <div *ngIf="messageComplaint" class="alert alert-danger" role="alert">{{ messageComplaint }}</div>
+
+</form>
+
+    <div *ngIf="showUploadImage">
+      <div class="row">
+        <div class="col-8">
+          <label class="btn btn-default p-0">
+            <input type="file" (change)="selectFile($event)" />
+          </label>
+        </div>
+
+        <div class="col-4">
+          <button class="btn btn-success btn-sm" [disabled]="!selectedFiles" (click)="upload()">
+            Upload
+          </button>
+        </div>
+      </div>
+
+      <div *ngIf="currentFile" class="progress my-3">
+        <div
+          class="progress-bar progress-bar-info progress-bar-striped"
+          role="progressbar"
+          attr.aria-valuenow="{{ progress }}"
+          aria-valuemin="0"
+          aria-valuemax="100"
+          [ngStyle]="{ width: progress + '%' }"
+        >
+          {{ progress }}%
+        </div>
+      </div>
+
+      <div *ngIf="messageUploadImage" class="alert alert-danger" role="alert">{{ messageUploadImage }}</div>
+    </div>
+
+
+
+ </div>
+</div>
+
+<app-footer></app-footer>
+
+<!--====== Javascripts & Jquery ======-->
+<script src="/assets/FrontOffice/js/jquery-3.2.1.min.js"></script>
+<script src="/assets/FrontOffice/js/bootstrap.min.js"></script>
+<script src="/assets/FrontOffice/js/mixitup.min.js"></script>
+<script src="/assets/FrontOffice/js/circle-progress.min.js"></script>
+<script src="/assets/FrontOffice/js/owl.carousel.min.js"></script>
+<script src="/assets/FrontOffice/js/main.js"></script>

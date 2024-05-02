@@ -1,0 +1,111 @@
+<link href="https://fonts.googleapis.com/css?family=Raleway:400,400i,500,500i,600,600i,700,700i,800,800i" rel="stylesheet">
+
+<!-- Stylesheets -->
+<title>WebUni - Education Template</title>
+<meta charset="UTF-8">
+<meta name="description" content="WebUni Education Template">
+<meta name="keywords" content="webuni, education, creative, html">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!-- Favicon -->
+<link href="img/favicon.ico" rel="shortcut icon"/>
+<link rel="stylesheet" href="/assets/FrontOffice/css/bootstrap.min.css"/>
+<link rel="stylesheet" href="/assets/FrontOffice/css/font-awesome.min.css"/>
+<link rel="stylesheet" href="/assets/FrontOffice/css/owl.carousel.css"/>
+<link rel="stylesheet" href="/assets/FrontOffice/css/style.css"/>
+
+<app-header></app-header>
+
+<div class="row d-flex align-items-center justify-content-center">
+  <div class="col-lg-10 text-center">
+
+    <div class="section-title">
+      <h2>Complaints list</h2>
+    </div>
+
+    <button type="button" class="btn btn-primary mt-3 mb-4" [routerLink]="['/addcomplaint']">
+      Add Complaint
+    </button>
+
+
+    <div class="form-group text-center mt-3" style="max-width: 500px; margin: 0 auto;">
+      <select class="form-select custom-select" id="statusFilter" [(ngModel)]="selectedStatus">
+        <option value="">All Status</option>
+        <option value="Closed">Closed</option>
+        <option value="InProgress">In Progress</option>
+        <option value="OnHold">On Hold</option>
+      </select>
+    </div>
+
+    <br/>
+
+    <div class="input-group mb-3" style="max-width: 500px; margin: 0 auto;">
+      <input type="text" class="form-control" placeholder="Search" [(ngModel)]="searchTerm">
+      <div class="input-group-append">
+        <button class="btn btn-outline-secondary" type="button">
+          <i class="fa fa-search"></i>
+        </button>
+      </div>
+    </div>
+
+
+    <div class="container">
+      <table class="table table-hover table-bordered">
+        <thead>
+        <tr>
+          <th scope="col">Object</th>
+          <th scope="col">Description</th>
+          <th scope="col">Image</th>
+          <th scope="col">Creation Date</th>
+          <th scope="col">Category</th>
+          <th scope="col">Priority</th>
+          <th scope="col">Status</th>
+          <th scope="col">Author</th>
+          <th scope="col" colspan="3">Actions</th>
+
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let complaint of filterComplaints()">
+          <td>{{ complaint.object }}</td>
+          <td>{{ complaint.description }}</td>
+          <td>
+            <img [src]="getImageUrl(complaint.imageName)" alt="Complaint image" width="100" height="100">
+          </td>
+          <td>{{ complaint.createdAt | date: 'short' }}</td>
+          <td>{{ complaint.category }}</td>
+          <td>{{ complaint.priority }}</td>
+          <td>{{ complaint.status }}</td>
+          <td>{{ complaint.author.nom }} {{ complaint.author.prenom }} </td>
+          <td class="d-flex align-items-center">
+            <a class="btn btn-success btn-sm mr-1" [routerLink]="['/complaint', complaint.id]">Details</a>
+            <a class="btn btn-warning btn-sm mr-1" (click)="openUpdateDialog(complaint)">Update</a>
+            <a class="btn btn-danger btn-sm" (click)="deleteComplaint(complaint.id)">Delete</a>
+          </td>
+        </tr>
+        </tbody>
+      </table>
+
+      <div class="d-flex justify-content-between align-items-center mt-4">
+        <span>Page {{ currentPage }} of {{ totalPages }}</span>
+        <div *ngIf="totalPages > 1">
+          <button class="btn btn-secondary" (click)="currentPage = currentPage - 1" [disabled]="currentPage === 1">Previous</button>
+          <button class="btn btn-secondary" (click)="currentPage = currentPage + 1" [disabled]="currentPage === totalPages">Next</button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+
+  <app-update-complaint-dialog *ngIf="showUpdateDialog" [complaint]="complaintToUpdate" (closeDialog)="showUpdateDialog = false" (updateComplaint)="updateComplaint($event.id, $event.updatedComplaint)"></app-update-complaint-dialog>
+
+  <app-footer></app-footer>
+
+  <!--====== Javascripts & Jquery ======-->
+  <script src="/assets/FrontOffice/js/jquery-3.2.1.min.js"></script>
+  <script src="/assets/FrontOffice/js/bootstrap.min.js"></script>
+  <script src="/assets/FrontOffice/js/mixitup.min.js"></script>
+  <script src="/assets/FrontOffice/js/circle-progress.min.js"></script>
+  <script src="/assets/FrontOffice/js/owl.carousel.min.js"></script>
+  <script src="/assets/FrontOffice/js/main.js"></script>

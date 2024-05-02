@@ -1,0 +1,43 @@
+.complaint-details-container {
+  border: 1px solid #e0e0e0;
+  padding: 2rem;
+  border-radius: 0.5rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  background-color: #f9f9f9;
+}
+
+.comments-section-container {
+  border: 1px solid #e0e0e0;
+  padding: 2rem;
+  border-radius: 0.5rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  margin-top: 2rem;
+  background-color: #f9f9f9;
+}
+
+.testimonial-content {
+  background-color: #fff;
+  padding: 1.5rem;
+  border-radius: 0.5rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.testimonial-content p {
+  margin-bottom: 0;
+}
+
+.testimonial-content h5 {
+  margin-top: 1rem;
+}
+
+.comment-form {
+  margin-top: 2rem;
+}
+
+.comment-form textarea {
+  resize: none;
+}
+
+.comment-buttons {
+  margin-top: 1.5rem;
+}

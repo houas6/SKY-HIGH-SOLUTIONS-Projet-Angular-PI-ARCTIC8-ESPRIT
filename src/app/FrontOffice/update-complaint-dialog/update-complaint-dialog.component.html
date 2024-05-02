@@ -1,0 +1,23 @@
+<div class="dialog">
+  <h2>Update Complaint</h2>
+  <form>
+    <div class="form-group">
+      <label for="object">Object:</label>
+      <input type="text" class="form-control" id="object" [(ngModel)]="complaint.object" name="object">
+    </div>
+    <div class="form-group">
+      <label for="description">Description:</label>
+      <textarea class="form-control" id="description" [(ngModel)]="complaint.description" name="description"></textarea>
+    </div>
+    <div class="form-group">
+      <label for="category">Category:</label>
+      <input type="text" class="form-control" id="category" [(ngModel)]="complaint.category" name="category">
+    </div>
+    <div class="form-group">
+      <label for="priority">Priority:</label>
+      <input type="text" class="form-control" id="priority" [(ngModel)]="complaint.priority" name="priority">
+    </div>
+    <button type="button" class="btn btn-primary" (click)="onUpdate()">Update</button>
+    <button type="button" class="btn btn-secondary" (click)="onClose()">Close</button>
+  </form>
+</div>

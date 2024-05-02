@@ -1,0 +1,125 @@
+<link href="https://fonts.googleapis.com/css?family=Raleway:400,400i,500,500i,600,600i,700,700i,800,800i" rel="stylesheet">
+
+<!-- Stylesheets -->
+<title>WebUni - Education Template</title>
+<meta charset="UTF-8">
+<meta name="description" content="WebUni Education Template">
+<meta name="keywords" content="webuni, education, creative, html">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!-- Favicon -->
+<link href="img/favicon.ico" rel="shortcut icon"/>
+<link rel="stylesheet" href="/assets/FrontOffice/css/bootstrap.min.css"/>
+<link rel="stylesheet" href="/assets/FrontOffice/css/font-awesome.min.css"/>
+<link rel="stylesheet" href="/assets/FrontOffice/css/owl.carousel.css"/>
+<link rel="stylesheet" href="/assets/FrontOffice/css/style.css"/>
+
+<app-header></app-header>
+
+<div class="container">
+  <div class="row d-flex align-items-center justify-content-center">
+    <div class="col-lg-10 text-center">
+
+      <div class="section-title">
+        <h2>Complaint details</h2>
+      </div>
+
+      <div class="complaint-details-container" *ngIf="complaint">
+        <div class="row gy-4 d-flex align-items-center justify-content-center">
+          <div class="col-lg-7 position-relative about-img text-center">
+            <img [src]="getImageUrl(complaint.imageName)" alt="Img" class="img-fluid rounded shadow">
+          </div>
+          <div class="col-lg-5 d-flex align-items-end text-center" data-aos-delay="300">
+            <div class="content ps-0 ps-lg-5">
+              <h4 class="fst-italic text-primary">
+                {{ complaint.object }}
+              </h4>
+              <br>
+              <ul class="list-unstyled">
+                <li><i class="bi-calendar-check text-secondary"></i>&nbsp;<span>Description: {{ complaint.description }}</span></li>
+                <li>
+                  <i class="bi-app-indicator text-secondary"></i>&nbsp;
+                  <span>
+                  Status:
+                  <span class="badge" [ngClass]="{
+                  'bg-info': complaint.status === 'OnHold',
+                  'bg-warning': complaint.status === 'InProgress',
+                  'bg-secondary': complaint.status === 'Closed'
+                  }">
+                 {{ complaint.status }}
+                 </span>
+                </span>
+                </li>
+                <li><i class="bi-calendar-check text-secondary"></i>&nbsp;<span>Creation date: {{ complaint.createdAt}}</span></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="comments-section-container" *ngIf="comments.length>0">
+        <h3>Comments ({{comments.length}})</h3>
+        <div class="swiper-slide" *ngFor="let comment of comments">
+          <div class="testimonial-item">
+            <div class="row gy-4 justify-content-center">
+              <div class="col-lg-6">
+                <div class="testimonial-content">
+                  <p><strong>{{ comment.author.nom }}</strong></p>
+                  <h5>
+                    <span *ngIf="commentBeingEdited !== comment">{{ comment.content }}</span>
+                  </h5>
+                  <form *ngIf="commentBeingEdited === comment" (submit)="updateComment(comment.id, commentForm.value)">
+                    <textarea rows="3" class="form-control form-control-alternative" #commentForm [value]="comment.content"></textarea>
+                    <br>
+                    <button type="submit" class="btn btn-sm btn-secondary"><span><i class="bi-check2-circle"></i> Update Comment</span></button>&nbsp;
+                    <button *ngIf="commentBeingEdited === comment" (click)="commentBeingEdited = null" type="button" class="btn btn-sm btn-secondary"><span><i class="bi-backspace"></i> Cancel</span></button>
+                  </form>
+                  <p class="text-muted">{{comment.createdAt}}</p>
+
+                  <div *ngIf="complaint?.status !== 'Closed'">
+                    <button *ngIf="commentBeingEdited !== comment" (click)="editComment(comment)" type="button" class="btn btn-sm btn-secondary "><span><i class="bi-blockquote-left"></i> Edit</span></button>&nbsp;
+                    <button *ngIf="commentBeingEdited !== comment" (click)="deleteComment(comment.id)" type="button" class="btn btn-sm btn-danger"><span><i class="bi-trash"></i> Delete</span></button>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <br><br>
+          </div>
+          <br>
+        </div>
+      </div>
+
+      <div class="container" *ngIf="complaint?.status !== 'Closed'">
+        <h5>Add Comment</h5>
+        <div class="row justify-content-center comment-form">
+          <div class="col-xl-8 order-xl-1">
+            <div class="card bg-light shadow">
+              <div class="card-body">
+                <form>
+                  <div class="form-group">
+                    <textarea rows="3" class="form-control form-control-alternative" #commentForm placeholder="Add your comment here..." name="comment" id="comment" required></textarea>
+                  </div>
+                  <div class="comment-buttons text-center">
+                    <button class="btn btn-success" type="submit" (click)="addComment(idUser, idComplaint, commentForm.value)">Send Comment</button>
+                    <button class="btn btn-danger" type="submit" (click)="closeComplaint(idComplaint)">Close Complaint</button>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+    <app-footer></app-footer>
+
+    <!--====== Javascripts & Jquery ======-->
+    <script src="/assets/FrontOffice/js/jquery-3.2.1.min.js"></script>
+    <script src="/assets/FrontOffice/js/bootstrap.min.js"></script>
+    <script src="/assets/FrontOffice/js/mixitup.min.js"></script>
+    <script src="/assets/FrontOffice/js/circle-progress.min.js"></script>
+    <script src="/assets/FrontOffice/js/owl.carousel.min.js"></script>
+    <script src="/assets/FrontOffice/js/main.js"></script>
