@@ -1,52 +1,60 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { HttpClientModule } from '@angular/common/http';
+
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { OffreComponent } from './offre/offre.component';
-import { FormsModule } from '@angular/forms';
-import { SidebarComponent } from './sidebar/sidebar.component';
-import { SessionComponent } from './session/session.component';
-import { AddsessionComponent } from './session/addsession/addsession.component';
-import { UpdatesessionComponent } from './session/updatesession/updatesession.component';
-import { CommonModule, DatePipe } from '@angular/common';
-import { CalendarComponent } from './calendar/calendar.component';
-import { MaterielComponent } from './materiel/materiel.component';
-import { AddmaterielComponent } from './materiel/addmateriel/addmateriel.component';
-import { UpdatematerielComponent } from './materiel/updatemateriel/updatemateriel.component';
-import { StudygComponent } from './studyg/studyg.component';
-import { AddStudygComponent } from './studyg/add-studyg/add-studyg.component';
-import { UpdateStudygComponent } from './studyg/update-studyg/update-studyg.component';
-import { OussamaComponent } from './oussama/oussama.component';
-import { NavbarComponent } from './navbar/navbar.component';
-
+import { DynamicComponent } from './FrontOffice/dynamic/dynamic.component';
+import { HeaderComponent } from './FrontOffice/header/header.component';
+import { FooterComponent } from './FrontOffice/footer/footer.component';
+import { AllTemplateFrontComponent } from './FrontOffice/all-template-front/all-template-front.component';
+import { AllTemplateBackComponent } from './BackOffice/all-template-back/all-template-back.component';
+import { HttpClientModule } from '@angular/common/http';
+import { SessionComponent } from './FrontOffice/session/session.component';
+import { RessourceComponent } from './FrontOffice/ressource/ressource.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { RessourceBackComponent } from './BackOffice/ressource-back/ressource-back.component';
+import { SidebarComponent } from './BackOffice/sidebar/sidebar.component';
+import { NavbarComponent } from './BackOffice/navbar/navbar.component';
+import { AddLocal2Component } from './BackOffice/add-local-2/add-local-2.component';
+import { AddStudyGroupComponent } from './BackOffice/add-study-group/add-study-group.component';
+import { ViewLocalComponent } from './BackOffice/view-local/view-local.component';
+import { ViewStudyGroupComponent } from './BackOffice/view-study-group/view-study-group.component';
+import { NewCompoentComponent } from './new-compoent/new-compoent.component';
+import { PccComponent } from './BackOffice/pcc/pcc.component';
+import { AngularChartjsComponent } from './BackOffice/angular-chartjs/angular-chartjs.component';
 @NgModule({
+
+
   declarations: [
     AppComponent,
-    OffreComponent,
-    SidebarComponent,
+
+    DynamicComponent,
+    HeaderComponent,
+    FooterComponent,
+    AllTemplateFrontComponent,
+
     SessionComponent,
-    AddsessionComponent,
-    UpdatesessionComponent,
-    CalendarComponent,
-    MaterielComponent,
-    AddmaterielComponent,
-    UpdatematerielComponent,
-    StudygComponent,
-    AddStudygComponent,
-    UpdateStudygComponent,
-    OussamaComponent,
-    NavbarComponent,
-    
+      AllTemplateBackComponent,
+      RessourceComponent,
+      RessourceBackComponent,
+      AddLocal2Component,
+      AddStudyGroupComponent,
+      ViewLocalComponent,
+      ViewStudyGroupComponent,
+      NewCompoentComponent,
+      PccComponent,
+      AngularChartjsComponent
+
   ],
   imports: [
     BrowserModule,
+    AppRoutingModule,
     HttpClientModule,
-    FormsModule ,
-    CommonModule,
-    AppRoutingModule
+    ReactiveFormsModule,
+    SidebarComponent,NavbarComponent,
+    FormsModule,
   ],
-  providers: [DatePipe],
+  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

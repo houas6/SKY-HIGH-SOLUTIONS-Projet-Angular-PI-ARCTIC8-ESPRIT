@@ -1,39 +1,66 @@
-import { NgModule } from '@angular/core';
+import { Component, NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { OffreComponent } from './offre/offre.component';
-import { SidebarComponent } from './sidebar/sidebar.component';
-import { SessionComponent } from './session/session.component';
-import { AddsessionComponent } from './session/addsession/addsession.component';
-import { UpdatesessionComponent } from './session/updatesession/updatesession.component';
-import { CalendarComponent } from './calendar/calendar.component';
-import { MaterielComponent } from './materiel/materiel.component';
-import { AddmaterielComponent } from './materiel/addmateriel/addmateriel.component';
-import { UpdatematerielComponent } from './materiel/updatemateriel/updatemateriel.component';
-import { StudygComponent } from './studyg/studyg.component';
-import { AddStudygComponent } from './studyg/add-studyg/add-studyg.component';
-import { UpdateStudygComponent } from './studyg/update-studyg/update-studyg.component';
-import { OussamaComponent } from './oussama/oussama.component';
-const routes: Routes = [
-  {path: 'offre', component: OffreComponent},
-  {path: 'sidebar', component: SidebarComponent},
-  {path: 'session', component: SessionComponent},
-  {path: 'addsess', component: AddsessionComponent},
-  {path: 'update-sess/:id', component: UpdatesessionComponent},
-  {path: 'calendar', component: CalendarComponent},
-  {path: 'materiel', component: MaterielComponent},
-  {path: 'addmat', component: AddmaterielComponent},
-  {path: 'update-mat/:id', component: UpdatematerielComponent},
-  {path: 'studyg', component: StudygComponent},
-  {path: 'addsg', component: AddStudygComponent},
-  {path: 'updatesg/:id', component: UpdateStudygComponent},
-  {path: 'oues', component: OussamaComponent},
+import { AllTemplateBackComponent }  from './BackOffice/all-template-back/all-template-back.component';
+import { AllTemplateFrontComponent } from './FrontOffice/all-template-front/all-template-front.component';
+import { SessionComponent } from './FrontOffice/session/session.component';
+import { RessourceBackComponent } from './BackOffice/ressource-back/ressource-back.component';
+import { RessourceComponent } from './FrontOffice/ressource/ressource.component';
+import { AddLocal2Component } from './BackOffice/add-local-2/add-local-2.component';
+import { AddStudyGroupComponent } from './BackOffice/add-study-group/add-study-group.component';
+import { ViewLocalComponent } from './BackOffice/view-local/view-local.component';
+import { ViewStudyGroupComponent } from './BackOffice/view-study-group/view-study-group.component';
+import { AngularChartjsComponent } from './BackOffice/angular-chartjs/angular-chartjs.component';
+import { PccComponent } from './BackOffice/pcc/pcc.component';
 
+const routes: Routes = [
+  {
+  path:"admin",
+  component:AllTemplateBackComponent
+  },
+  {
+    path:"add_local",
+    component:AddLocal2Component
+    },
+  {
+    path: "chart",
+    component: AngularChartjsComponent
+  },
+  {
+    path: "chartpie",
+    component: PccComponent
+  },
+    {
+      path:"get_locals",
+      component:ViewLocalComponent
+      },
+    {
+      path:"add_study_group",
+      component:AddStudyGroupComponent
+      },
+      {
+        path:"get_study_groups",
+        component:ViewStudyGroupComponent
+        },
+  {
+    path:"front",
+    component:AllTemplateFrontComponent
+    },
+  {
+    path:"test",
+    component:AllTemplateFrontComponent
+  },
+  {
+    path:"list",
+    component:RessourceComponent
+    },
+    {
+      path:"form",
+      component:RessourceBackComponent
+    }
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
 })
-export class AppRoutingModule {
- 
- }
+export class AppRoutingModule { }

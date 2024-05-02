@@ -1,0 +1,25 @@
+<div *ngIf="Ressources && Ressources.length > 0; else noDataTemplate">
+  <table>
+    <thead>
+      <tr>
+        <th>Date_ajout</th>
+        <th>Description</th>
+        <th>Type</th>
+        <th>Content</th>
+      </tr>
+    </thead>
+    <tbody>
+      <div *ngFor="let ressource of Ressources">
+        <h2>Description: {{ ressource.description }}</h2>
+        <p>Type: {{ ressource.type }}</p>
+        <p>Content: {{ ressource.content }}</p>
+        <!-- Add download link for content if applicable -->
+      </div>
+      
+    </tbody>
+  </table>
+</div>
+<ng-template #noDataTemplate>
+  <p>No Resources found.</p>
+</ng-template>
+<router-outlet></router-outlet>

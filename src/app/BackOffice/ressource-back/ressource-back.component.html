@@ -1,0 +1,74 @@
+<style>/* Custom CSS for white placeholders */
+    .custom-bg ::placeholder {
+      color: white;
+    }
+    </style>
+  <div class="container" style="margin: 0 auto;">
+    <div class="custom-bg rounded p-4" style="max-width: 600px;">
+      <div class="d-flex align-items-left justify-content-between mb-4">
+        <h6 class="mb-0">Add ressource</h6>
+      </div>
+      <div class="table-responsive">
+        <form [formGroup]="ressourceForm" (ngSubmit)="editressource ? upressource() : addressource()" class="custom-bg text-white p-4 rounded">
+
+          <div class="mb-3">
+            <label for="date_ajout" class="form-label text-danger">Date d'ajout:</label>
+            <input id="date_ajout" type="date" formControlName="date_ajout" class="form-control bg-light text-dark" placeholder="Date d'ajout">
+          </div>
+      
+          <div class="mb-3">
+            <label for="description" class="form-label text-danger">Description:</label>
+            <input id="description" type="text" formControlName="description" class="form-control bg-light text-dark" placeholder="Description">
+          </div>
+      
+          <div class="mb-3">
+            <label for="type" class="form-label text-danger">Type:</label>
+            <select id="type" formControlName="type" class="form-select bg-light text-dark">
+              <option *ngFor="let type of types" [value]="type" class="bg-light text-dark">{{type}}</option>
+            </select>
+          </div>
+      
+          <div class="mb-3">
+            <label for="fileInput" class="form-label text-danger">Content:</label>
+            <div class="input-group">
+              <!-- Text input to display the selected file's name -->
+              <input type="text" id="content" formControlName="content" placeholder="Upload your course" class="form-control bg-light text-dark" readonly>
+              <label for="fileInput" class="input-group-text bg-primary text-white">Choose File</label>
+              <!-- File input element -->
+              <input id="fileInput" type="file" (change)="onFileSelected($event)" style="display: none;">
+            </div>
+          </div>
+      
+          <button type="submit" class="btn btn-danger">Submit</button>
+        </form>
+      </div>
+      
+      <!-- Table of resources -->
+      <table class="table table-striped mt-4">
+        <thead>
+          <tr>
+            <th>Id ressource</th>
+            <th>Date_ajout</th>
+            <th>Description</th>
+            <th>Type</th>
+            <th>Content</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let ressource of ressources">
+            <td>{{ ressource.idRessources }}</td>
+            <td>{{ ressource.date_ajout }}</td>
+            <td>{{ ressource.description }}</td>
+            <td>{{ ressource.type }}</td>
+            <td>{{ ressource.content  }}</td>
+            <td>
+              <!-- Edit button -->
+              <button (click)="editressources(ressource)" class="btn btn-primary">Edit</button>
+              <!-- Delete button -->
+              <button (click)="deleteressource(ressource.idRessources!)" class="btn btn-danger">Delete</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      

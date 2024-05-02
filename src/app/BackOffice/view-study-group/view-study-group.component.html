@@ -1,0 +1,24 @@
+<table>
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Date Debut</th>
+        <th>Level</th>
+        <th>Location</th>
+        <th>Topic</th>
+        <th>Status</th>
+      </tr>
+    </thead>
+    <tbody>
+      
+      <tr *ngFor="let sg of StudyGroups">
+        <td>{{ sg.idGroup }}</td>
+        <td>{{sg.date_debut}}</td>
+        <td>{{ sg.level }}</td>
+        <td>{{ sg.location }}</td>
+        <td>{{ sg.topic}}</td>
+        <td>{{sg.status}}</td>
+      </tr>
+    </tbody>
+  </table>
+  

@@ -1,0 +1,18 @@
+<table>
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Capacity</th>
+        <th>Availability</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let local of locals">
+        <td>{{ local.idLocal }}</td>
+        <td>{{ local.capacity }}</td>
+        <td>{{ local.availability }}</td>
+
+      </tr>
+    </tbody>
+  </table>
+  
