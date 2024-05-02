@@ -1,0 +1,38 @@
+<section class="categories-section spad">
+    <div class="container">
+        <div class="section-title">
+            <h2>Choose A Study Group</h2>
+            <p>Join our study groups, where knowledge flourishes in intimate settings of up to five students. Experience personalized learning, vibrant discussions, and accelerated progress towards your goals. Together, we'll achieve academic excellence and unlock our full potential. </p>   
+            <br>
+            <br>    
+            <a href="./addsg" class="site-btn" data-toggle="modal">Add A StudyGroup</a>
+        </div>
+
+            <div class="row">
+            <!-- Loop through each fournisseur to create a card -->
+            <div class="col-lg-4 col-md-6" *ngFor="let fournisseur of fournisseurs; let i = index">
+                <div class="categorie-item">
+                    <div class="ci-text">
+                        <span>         {{ fournisseur.topic }}                        </span>
+                        <p>{{ fournisseur.date_debut }}</p>
+                        <p>{{ fournisseur.topic }}</p>
+                        <p>{{fournisseur.location}}                        </p>
+                        <p>{{fournisseur.level}}                        </p>
+                        <button (click)="incrementNbp(fournisseur.idGroup)" style="background-color: #3aa5ba; /* Green */
+                        border: none;
+                        color: white;
+                        padding: 15px 32px;
+                        text-align: center;
+                        text-decoration: none;
+                        display: inline-block;
+                        font-size: 16px;
+                        margin: 4px 2px;
+                        transition-duration: 0.4s;
+                        cursor: pointer;
+                        border-radius: 12px;">Participer</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+  </section>

@@ -30,5 +30,16 @@ export class StudygService {
     return this.http.get('http://localhost:8089/Studygroup/retrieve-studygroup/'+id)
   }
 
-
+  incrementNbpIfUnderFive(id: number): Observable<any> {
+    return this.http.put<any>(`http://localhost:8089/Studygroup/increment-nbp/${id}`, {});
+  }
+  getLocal(){
+    return this.http.get('http://localhost:8089/Local/names')
+  }
+  idNameLocal(name: any): Observable<any> {
+    return this.http.get(`http://localhost:8089/Local/idByName/${name}`);
+  }
+  createStudygroupWithLocal(studygroup: any, localId: number): Observable<any> {
+    return this.http.post<any>(`http://localhost:8089/Studygroup/create-studygroup-with-local/${localId}`, studygroup);
+  }
 }

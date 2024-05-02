@@ -29,7 +29,11 @@
           <option *ngFor="let level of levels" [value]="level">{{ level }}</option>
         </select>
       </div>
-  
+
+      <select class="form-select" aria-label="Local" (change)="onLocalSelect($event)">
+        <option *ngFor="let localName of localNames" [value]="localName">{{ localName }}</option>
+      </select>
+      
                       <button  (click)="ajouter()"   class="btn btn-success pull-right">Ajouter</button>
                       <div class="clearfix"></div>
   

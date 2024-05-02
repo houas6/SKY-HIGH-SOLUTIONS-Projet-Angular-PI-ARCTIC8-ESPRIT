@@ -17,25 +17,43 @@ export class AddStudygComponent implements OnInit{
   ) { }
   levels = ['premiere', 'deuxieme', 'troisieme'];
 
-  fournisseur:any={dateSession: null}
-
+  fournisseur:any={dateSession: null,local_id_local: null }
+  localNames: any;
   ngOnInit(): void {
-
-
+    this.getLocalNames();
+  }
+  getLocalNames(): void {
+    this.service.getLocal().subscribe(
+      data => this.localNames=data
+    
+    );
+  }
+  onLocalSelect(event: Event): void {
+    const localName = (event.target as HTMLSelectElement).value;
+    this.service.idNameLocal(localName).subscribe(
+      (id: number) => {
+        this.fournisseur.local_id_local = id;
+      }
+    );
   }
 
   ajouter(): void {
-    this.service.addSession(this.fournisseur).subscribe(
+    this.service.createStudygroupWithLocal(this.fournisseur, this.fournisseur.local_id_local).subscribe(
       (session: any) => {
         this.navigate();
+      },
+      (error: any) => {
+        console.error("Error adding studygroup:", error);
+        // Handle error, if needed
       }
     );
   }
   navigate(){
-    this.router.navigate(['oues'])
+    this.router.navigate(['waaa'])
   }
 
-
+ 
 
 }
-
+  
+  
