@@ -24,14 +24,14 @@ export class AllTemplateBackComponent {
       private dataServiceLocal : ManageLocalService) { }
   
     ngOnInit() {
-      this.fetchAvliablesLocals();
+      this.fetchLocals();
     }
   
     fetchLocals() {
-      this.dataServiceLocal.getAvliablesLocals().subscribe(
+      this.dataServiceLocal.getLocals().subscribe(
         (data: any[]) => {
           console.log(data)
-          this.StudyGroups = data;
+          this.locals = data;
         },
         error => {
           console.error('Error fetching locals:', error);
@@ -43,7 +43,7 @@ export class AllTemplateBackComponent {
       this.dataServiceLocal.getAvliablesLocals().subscribe(
         (data: any[]) => {
           console.log(data)
-          this.locals = data;
+          this.StudyGroups = data;
         },
         error => {
           console.error('Error fetching locals:', error);
@@ -55,6 +55,7 @@ export class AllTemplateBackComponent {
     getColor(totalGroups: number): string {
       return totalGroups === 0 ? 'green' : 'orange';
     }
+    
 
   get filteredLocals() {
     return this.locals.filter(local =>
@@ -67,6 +68,20 @@ export class AllTemplateBackComponent {
   }
     
     
+//get all studygroups by id of local 
+
+  studygroupsbyid: any[] = [];
+  fetchstudygroupsByid_local(id_local : any) {
+    this.dataService.getStudyGroupsByLocalId(id_local).subscribe(
+      (data: any[]) => {
+        console.log(data)
+        this.studygroupsbyid = data
+      },
+      error => {
+        console.error('Error fetching locals:', error);
+      }
+    );
+  }
 
 
 }

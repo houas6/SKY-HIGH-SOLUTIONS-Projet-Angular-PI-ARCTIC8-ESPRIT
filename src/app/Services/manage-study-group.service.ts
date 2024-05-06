@@ -20,6 +20,9 @@ export class ManageStudyGroupService {
   getStudyGroupsbyStatusOpen() {
     return this.http.get<any[]>('http://localhost:8087/Gestion-Reservation/Studygroup/ByStatus/open');
   }
+  getStudyGroupsByLocalId(id_local: any) {
+    return this.http.get<any[]>('http://localhost:8087/Gestion-Reservation/Studygroup/getByIdLocal/'+id_local);
+  }
   Match(id_study_group: number, id_local: number) {
     console.log("match service")
     let queryParams = new HttpParams();

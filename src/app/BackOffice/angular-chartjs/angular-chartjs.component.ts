@@ -48,9 +48,9 @@ export class AngularChartjsComponent {
         labels: [], // Leave it empty initially
         datasets: [
           {
-            label: "Sales",
+            label: "Groups",
             data: this.data_values,
-            backgroundColor: 'blue'
+            backgroundColor: 'red'
           },
         ]
       },
@@ -61,14 +61,14 @@ export class AngularChartjsComponent {
             display: true,
             title: {
               display: true,
-              text: 'X Axis Title'
+              text: 'Classroom'
             }
           },
           y: {
             display: true,
             title: {
               display: true,
-              text: 'Y Axis Title'
+              text: 'Number of groups'
             }
           }
         }

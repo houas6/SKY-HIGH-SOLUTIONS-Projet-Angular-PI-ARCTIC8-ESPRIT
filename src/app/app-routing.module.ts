@@ -11,6 +11,7 @@ import { ViewLocalComponent } from './BackOffice/view-local/view-local.component
 import { ViewStudyGroupComponent } from './BackOffice/view-study-group/view-study-group.component';
 import { AngularChartjsComponent } from './BackOffice/angular-chartjs/angular-chartjs.component';
 import { PccComponent } from './BackOffice/pcc/pcc.component';
+import { WithoutSBComponent } from './without-sb/without-sb.component';
 
 const routes: Routes = [
   {
@@ -45,6 +46,7 @@ const routes: Routes = [
     path:"front",
     component:AllTemplateFrontComponent
     },
+    
   {
     path:"test",
     component:AllTemplateFrontComponent
@@ -56,7 +58,12 @@ const routes: Routes = [
     {
       path:"form",
       component:RessourceBackComponent
-    }
+    },
+    {
+    path: "withoutSB",
+    component: WithoutSBComponent
+  }
+
 ];
 
 @NgModule({

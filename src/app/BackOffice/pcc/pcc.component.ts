@@ -22,7 +22,11 @@ export class PccComponent implements OnInit {
       (data: any) => {
         console.log(data);
         this.data = data;
-        this.createChart(); // Move createChart() call here
+        if (!this.chart) {
+          this.createChart();
+        } else {
+          this.updateChart();
+        }
       },
       error => {
         console.error('Error fetching data:', error);
@@ -31,7 +35,7 @@ export class PccComponent implements OnInit {
   }
 
   createChart() {
-    this.chart = new Chart("MyChart", {
+    this.chart = new Chart("MyChartpie", {
       type: 'pie',
       data: {
         labels: Object.keys(this.data),
@@ -39,8 +43,8 @@ export class PccComponent implements OnInit {
           label: 'Availability',
           data: Object.values(this.data),
           backgroundColor: [
-            'rgb(255, 99, 132)',
-            'rgb(54, 162, 235)'
+            'rgb(128, 139, 150)',
+            'rgb(240, 30, 0)'
           ],
           hoverOffset: 4
         }]

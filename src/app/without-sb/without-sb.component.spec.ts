@@ -1,20 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { AllTemplateBackComponent } from './all-template-back.component';
+import { WithoutSBComponent } from './without-sb.component';
 
-
-
-describe('AllTemplateBackComponent', () => {
-  let component: AllTemplateBackComponent;
-  let fixture: ComponentFixture<AllTemplateBackComponent>;
+describe('WithoutSBComponent', () => {
+  let component: WithoutSBComponent;
+  let fixture: ComponentFixture<WithoutSBComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [AllTemplateBackComponent]
+      declarations: [WithoutSBComponent]
     })
     .compileComponents();
     
-    fixture = TestBed.createComponent(AllTemplateBackComponent);
+    fixture = TestBed.createComponent(WithoutSBComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

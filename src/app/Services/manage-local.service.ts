@@ -20,4 +20,8 @@ export class ManageLocalService {
     return this.http.get<any[]>('http://localhost:8087/Gestion-Reservation/Local/avliables');
   }
 
+  getallnames() {
+    return this.http.get<any[]>('http://localhost:8087/Gestion-Reservation/Local/allbynames');
+  }
+
 }

@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { DynamicComponent } from './FrontOffice/dynamic/dynamic.component';
@@ -22,6 +22,9 @@ import { ViewStudyGroupComponent } from './BackOffice/view-study-group/view-stud
 import { NewCompoentComponent } from './new-compoent/new-compoent.component';
 import { PccComponent } from './BackOffice/pcc/pcc.component';
 import { AngularChartjsComponent } from './BackOffice/angular-chartjs/angular-chartjs.component';
+import { WithoutSBComponent } from './without-sb/without-sb.component';
+import { TotalCComponent } from './BackOffice/total-c/total-c.component';
+import { ToastrModule } from 'ngx-toastr';
 @NgModule({
 
 
@@ -43,7 +46,9 @@ import { AngularChartjsComponent } from './BackOffice/angular-chartjs/angular-ch
       ViewStudyGroupComponent,
       NewCompoentComponent,
       PccComponent,
-      AngularChartjsComponent
+      AngularChartjsComponent,
+      WithoutSBComponent,
+      TotalCComponent
 
   ],
   imports: [
@@ -53,6 +58,8 @@ import { AngularChartjsComponent } from './BackOffice/angular-chartjs/angular-ch
     ReactiveFormsModule,
     SidebarComponent,NavbarComponent,
     FormsModule,
+    BrowserAnimationsModule,
+    ToastrModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent]
