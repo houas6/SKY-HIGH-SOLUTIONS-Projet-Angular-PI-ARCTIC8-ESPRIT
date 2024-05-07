@@ -1,5 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
+import { RouterOutlet } from '@angular/router';
 import { ChartComponent } from './chart.component';
 
 describe('ChartComponent', () => {
@@ -11,7 +11,7 @@ describe('ChartComponent', () => {
       declarations: [ChartComponent]
     })
     .compileComponents();
-    
+
     fixture = TestBed.createComponent(ChartComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();

@@ -20,9 +20,12 @@
     "@angular/platform-browser-dynamic": "^17.3.0",
     "@angular/router": "^17.3.0",
     "@canvasjs/angular-charts": "^1.2.0",
+    "apexcharts": "^3.49.0",
     "badwords-list": "^1.0.0",
     "chart.js": "^4.4.2",
+    "ng-apexcharts": "^1.10.0",
     "rxjs": "~7.8.0",
+    "sweetalert2": "^11.10.8",
     "tslib": "^2.3.0",
     "zone.js": "~0.14.3"
   },

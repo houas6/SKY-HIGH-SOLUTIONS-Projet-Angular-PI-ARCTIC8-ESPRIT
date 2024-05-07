@@ -5,9 +5,11 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ReplyServiceService } from '../../Services/reply-service.service';
 import { HttpClient } from '@angular/common/http';
 import { Reply } from '../Reply';
+import Swal from 'sweetalert2';
+
 
 // List of prohibited words
-const badWords = ['fuck', 'shit','damn','eww','disgusting'];
+const badWords = ['fuck', 'shit','damn','eww','disgusting','nigga','fucker','kill','dead','pussy','dick','cock'];
 
 // Function to check if a comment contains a bad word
 function containsBadWord(comment: string) {
@@ -62,6 +64,12 @@ export class CommentComponent implements OnInit {
         // Check if the comment contains a bad word
         if (containsBadWord(content)) {
           console.error('Comment contains prohibited words.');
+          Swal.fire({ // Display a SweetAlert2 popup
+            icon: 'error',
+            title: 'Oops...',
+            text: 'Your comment contains prohibited words. Please revise your comment.',
+          });
+
           return;
         }
 

@@ -23,6 +23,7 @@ import { ReplyComponent } from './FrontOffice/reply/reply.component';
 import { ChartComponent } from './BackOffice/chart/chart.component';
 
 import { CanvasJSAngularChartsModule } from '@canvasjs/angular-charts';
+import { NgApexchartsModule } from 'ng-apexcharts';
 
 
 
@@ -64,7 +65,8 @@ import { CanvasJSAngularChartsModule } from '@canvasjs/angular-charts';
     GoogleMapsModule,
     FormsModule,
     CanvasJSAngularChartsModule,
-    CommonModule
+    CommonModule,
+    NgApexchartsModule
 
 
 
