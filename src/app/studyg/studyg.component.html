@@ -87,6 +87,9 @@
                             Localisation
                           </th>
                           <th>
+                            Locale
+                          </th>
+                          <th>
                             Modifier
                           </th>
                           <th>
@@ -114,6 +117,10 @@
                         <td>
                           {{fournisseur.location}}
                          </td>
+                         <td>
+                          {{fournisseur.local.name}}
+                         </td>
+
 
                         <td>
                           <div class="edit" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Edit" (click)="modify(fournisseur.idGroup)"><img src="/assets/img/loop.png"></i></div>
@@ -121,7 +128,7 @@
                          <td>
                           <div class="delete" data-toggle="modal "  (click)="deleteSession(fournisseur.idGroup)" (click)="delete(i)" ><i class="material-icons" data-toggle="tooltip" title="Delete">&#xE872;</i></div>
                       </td>
-                      
+
 
 
                     </tbody>

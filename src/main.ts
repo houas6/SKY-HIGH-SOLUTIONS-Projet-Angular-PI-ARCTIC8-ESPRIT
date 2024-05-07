@@ -1,6 +1,6 @@
 import { enableProdMode } from '@angular/core';
 import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
-import { AppModule } from './app/app.module'; // Import your root module
+import { AppModule } from './app/AppModule';
 
 // Call enableProdMode to switch to production mode
 enableProdMode();

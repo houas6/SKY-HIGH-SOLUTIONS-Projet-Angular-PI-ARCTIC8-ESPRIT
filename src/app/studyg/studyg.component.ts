@@ -9,6 +9,8 @@ import { ToastrService } from 'ngx-toastr';
   styleUrls: ['./studyg.component.css']
 })
 export class StudygComponent implements OnInit {
+
+  getlocal: any[] = [];
   topic:any;
   constructor(
     private service : StudygService,
@@ -19,10 +21,6 @@ export class StudygComponent implements OnInit {
 textBus = '';
 
 ngOnInit(): void {
-
-
-
-
   this.service.getSession().subscribe(
     data => this.fournisseurs=data
   )
@@ -56,8 +54,8 @@ modify(id:any){
 
      }
 
-   
-   
+
+
      function(){
       let btn:any = document.querySelector("#btn");
       let sidebar:any = document.querySelector(".sidebar");
@@ -76,16 +74,19 @@ modify(id:any){
         (data) => {
           // Handle the response if needed
           console.log('Incremented nbp successfully', data);
+          this.toastr.success('thank you for your participation.');
         },
         (error) => {
           // Handle error if necessary
           console.error('Error while incrementing nbp', error);
 
-                this.toastr.error('Unable to increment nbp. Maximum participants reached.');
+                this.toastr.error('Unable to participate. Maximum participants reached.');
 
         }
       );
     }
+
+
 }
 
 

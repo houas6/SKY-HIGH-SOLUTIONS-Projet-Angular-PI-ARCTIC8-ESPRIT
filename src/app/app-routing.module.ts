@@ -29,7 +29,7 @@ const routes: Routes = [
   {path: 'addsg', component: AddStudygComponent},
   {path: 'updatesg/:id', component: UpdateStudygComponent},
   {path: 'oues', component: OussamaComponent},
-  {path: 'waaa', component: AllTemplateFrontComponent},
+  {path: 'sky', component: AllTemplateFrontComponent},
 ];
 
 @NgModule({
@@ -37,5 +37,5 @@ const routes: Routes = [
   exports: [RouterModule]
 })
 export class AppRoutingModule {
- 
+
  }

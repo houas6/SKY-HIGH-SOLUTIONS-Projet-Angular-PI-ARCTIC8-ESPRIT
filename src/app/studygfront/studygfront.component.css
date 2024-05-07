@@ -1,0 +1,15 @@
+/* Style personnalisé pour les boutons */
+.custom-button {
+  background-color: #506f4e; /* Couleur de fond */
+  color: white; /* Couleur du texte */
+  padding: 10px 20px; /* Rembourrage */
+  border: none; /* Pas de bordure */
+  border-radius: 5px; /* Bordure arrondie */
+  margin-right: 10px; /* Marge à droite */
+  cursor: pointer; /* Curseur pointer */
+}
+
+/* Style personnalisé pour les boutons :hover (au survol) */
+.custom-button:hover {
+  background-color: #2e7c8a; /* Couleur de fond au survol */
+}

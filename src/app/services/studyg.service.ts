@@ -42,4 +42,5 @@ export class StudygService {
   createStudygroupWithLocal(studygroup: any, localId: number): Observable<any> {
     return this.http.post<any>(`http://localhost:8089/Studygroup/create-studygroup-with-local/${localId}`, studygroup);
   }
+
 }

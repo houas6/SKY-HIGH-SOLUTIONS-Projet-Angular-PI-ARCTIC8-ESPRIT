@@ -28,12 +28,12 @@ modify(){
   if (!isNaN(parsedDate.getTime())) {
     // Manually format the date string using toISOString()
     const formattedDate = parsedDate.toISOString();
-    
+
     // Assign the formatted date to the fournisseur object
     this.four.date_debut = formattedDate;
 
 this.service.updateSession(this.id,this.four).subscribe(
-  data =>{this.four=data,this.router.navigate(['studyg'])}
+  data =>{this.four=data,this.router.navigate(['oues'])}
 )
 }
 }
